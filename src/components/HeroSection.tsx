@@ -10,7 +10,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={heroImg} alt="Underwater coral reef at Koh Tao" className="w-full h-full object-cover" />
+        <img src={heroImg} alt="Whale shark diving at Koh Tao" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-ocean-deep/70 via-ocean-deep/40 to-ocean-deep/80" />
       </div>
 
@@ -42,8 +42,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-6 text-primary-foreground/80 font-body text-lg md:text-xl max-w-2xl mx-auto"
         >
-          Small groups (max 4:1), flexible schedules, and two custom dive boats.
-          Professional PADI instruction on Sairee Beach.
+          Flexible schedules, two custom dive boats, and professional PADI instruction on Sairee Beach.
         </motion.p>
 
         <motion.div
