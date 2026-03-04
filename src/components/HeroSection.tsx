@@ -49,24 +49,33 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-10 flex flex-col items-center justify-center gap-4"
         >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full px-8 text-base bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg"
+            >
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                Book a Dive
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-full px-8 text-base border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20"
+              onClick={() => document.querySelector("#courses")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              View Courses
+            </Button>
+          </div>
           <Button
-            asChild
-            size="lg"
-            className="rounded-full px-8 text-base bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg"
+            variant="link"
+            className="text-ocean-light/80 hover:text-ocean-light text-sm underline underline-offset-4"
+            onClick={() => document.querySelector("#fun-diving")?.scrollIntoView({ behavior: "smooth" })}
           >
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              Book a Dive
-            </a>
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full px-8 text-base border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20"
-            onClick={() => document.querySelector("#courses")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            View Courses
+            I have a license, just want to fun dive
           </Button>
         </motion.div>
       </div>
