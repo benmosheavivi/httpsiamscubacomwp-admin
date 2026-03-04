@@ -1,47 +1,98 @@
 import { motion } from "framer-motion";
-import { Award, BookOpen, Star, Crown, Fish } from "lucide-react";
+import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'm%20interested%20in%20";
 
-const courses = [
+const categories = [
   {
-    icon: Fish,
-    level: "Discovery",
-    title: "Discover Scuba Diving",
-    price: "2,600",
-    duration: "1 day",
-    highlights: ["No experience needed", "Pool + ocean dive", "PADI certified instructor"],
-    color: "bg-ocean-surface text-secondary-foreground",
+    label: "Basic Courses",
+    description: "Perfect for beginners — take your first breath underwater or earn your first certification.",
+    courses: [
+      {
+        icon: Fish,
+        title: "Discover Scuba Diving",
+        price: "2,600",
+        duration: "1 day",
+        highlights: ["No experience needed", "Pool + ocean dive", "PADI certified instructor"],
+      },
+      {
+        icon: BookOpen,
+        title: "Open Water Diver",
+        price: "11,000",
+        duration: "3–4 days",
+        highlights: ["Dive to 18m worldwide", "Lifetime certification", "4 open water dives"],
+        featured: true,
+      },
+    ],
   },
   {
-    icon: BookOpen,
-    level: "Beginner",
-    title: "Open Water Diver",
-    price: "11,000",
-    duration: "3-4 days",
-    highlights: ["Dive to 18m worldwide", "Lifetime certification", "4 open water dives"],
-    color: "bg-primary text-primary-foreground",
-    featured: true,
+    label: "Advanced Courses",
+    description: "Push your limits and explore deeper, further, and with more confidence.",
+    courses: [
+      {
+        icon: Star,
+        title: "Advanced Open Water",
+        price: "10,000",
+        duration: "2 days",
+        highlights: ["Dive to 30m", "5 adventure dives", "Deep & navigation skills"],
+      },
+    ],
   },
   {
-    icon: Star,
-    level: "Advanced",
-    title: "Advanced Open Water",
-    price: "10,000",
-    duration: "2 days",
-    highlights: ["Dive to 30m", "5 adventure dives", "Deep & navigation skills"],
-    color: "bg-ocean-surface text-secondary-foreground",
+    label: "Professional Level",
+    description: "Turn your passion into a career with professional-level PADI training.",
+    courses: [
+      {
+        icon: Crown,
+        title: "Divemaster",
+        price: "38,000",
+        duration: "4–8 weeks",
+        highlights: ["Lead certified divers", "Career in diving", "Internship included"],
+      },
+      {
+        icon: Award,
+        title: "IDC (Instructor Course)",
+        price: null,
+        duration: "Varies",
+        highlights: ["Become a PADI Instructor", "Full instructor training", "Teaching certifications"],
+      },
+    ],
   },
   {
-    icon: Crown,
-    level: "Professional",
-    title: "Divemaster",
-    price: "30,000+",
-    duration: "4-8 weeks",
-    highlights: ["Lead certified divers", "Career in diving", "Internship included"],
-    color: "bg-ocean-surface text-secondary-foreground",
+    label: "Specialty Courses",
+    description: "Master specific skills and unlock new diving adventures.",
+    courses: [
+      {
+        icon: Anchor,
+        title: "Wreck Diving",
+        price: "8,500",
+        duration: "2 days",
+        highlights: ["Explore sunken wrecks", "Penetration techniques", "PADI specialty cert"],
+      },
+      {
+        icon: ArrowDown,
+        title: "Deep Diving",
+        price: "8,500",
+        duration: "2 days",
+        highlights: ["Dive beyond 18m", "Gas management", "Deep dive planning"],
+      },
+      {
+        icon: Zap,
+        title: "Underwater Scooter (DPV)",
+        price: null,
+        duration: "1 day",
+        highlights: ["Ride a DPV underwater", "Cover more ground", "Unique experience"],
+      },
+      {
+        icon: Layers,
+        title: "Sidemount Diving",
+        price: null,
+        duration: "2–3 days",
+        highlights: ["Improved streamlining", "Independent gas supply", "Advanced configuration"],
+      },
+    ],
   },
 ];
 
@@ -65,59 +116,81 @@ const CoursesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {courses.map((course, i) => (
+        <div className="space-y-16">
+          {categories.map((cat, catIdx) => (
             <motion.div
-              key={course.title}
-              initial={{ opacity: 0, y: 30 }}
+              key={cat.label}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{ delay: catIdx * 0.1 }}
             >
-              <Card
-                className={`relative overflow-hidden h-full border-0 shadow-md hover:shadow-xl transition-shadow ${
-                  course.featured ? "ring-2 ring-primary" : ""
-                }`}
-              >
-                {course.featured && (
-                  <div className="absolute top-0 right-0 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-bl-lg">
-                    Most Popular
-                  </div>
-                )}
-                <CardContent className="p-6 flex flex-col h-full">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${course.color}`}>
-                    <course.icon className="h-6 w-6" />
-                  </div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{course.level}</p>
-                  <h3 className="font-display text-lg font-semibold text-foreground mb-2">{course.title}</h3>
-                  <div className="flex items-baseline gap-1 mb-4">
-                    <span className="text-2xl font-bold text-foreground">฿{course.price}</span>
-                    <span className="text-sm text-muted-foreground">THB</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground mb-4">{course.duration}</p>
-                  <ul className="space-y-2 mb-6 flex-1">
-                    {course.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-2 text-sm text-foreground/80">
-                        <Award className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    asChild
-                    variant={course.featured ? "default" : "outline"}
-                    className="rounded-full w-full"
+              <div className="mb-6">
+                <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">{cat.label}</h3>
+                <p className="text-muted-foreground text-sm mt-1">{cat.description}</p>
+              </div>
+
+              <div className={`grid grid-cols-1 sm:grid-cols-2 ${cat.courses.length > 2 ? "lg:grid-cols-4" : cat.courses.length === 1 ? "lg:grid-cols-3" : "lg:grid-cols-2"} gap-6`}>
+                {cat.courses.map((course, i) => (
+                  <motion.div
+                    key={course.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.08 }}
                   >
-                    <a
-                      href={`${WHATSAPP_URL}${encodeURIComponent(course.title)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Card
+                      className={`relative overflow-hidden h-full border-0 shadow-md hover:shadow-xl transition-shadow ${
+                        course.featured ? "ring-2 ring-primary" : ""
+                      }`}
                     >
-                      Book Now
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
+                      {course.featured && (
+                        <div className="absolute top-0 right-0 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-bl-lg">
+                          Most Popular
+                        </div>
+                      )}
+                      <CardContent className="p-6 flex flex-col h-full">
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-ocean-surface text-secondary-foreground">
+                          <course.icon className="h-6 w-6" />
+                        </div>
+                        <h4 className="font-display text-lg font-semibold text-foreground mb-2">{course.title}</h4>
+                        <div className="flex items-baseline gap-1 mb-1">
+                          {course.price ? (
+                            <>
+                              <span className="text-2xl font-bold text-foreground">฿{course.price}</span>
+                              <span className="text-sm text-muted-foreground">THB</span>
+                            </>
+                          ) : (
+                            <span className="text-lg font-semibold text-primary">Get Price</span>
+                          )}
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-4">{course.duration}</p>
+                        <ul className="space-y-2 mb-6 flex-1">
+                          {course.highlights.map((h) => (
+                            <li key={h} className="flex items-start gap-2 text-sm text-foreground/80">
+                              <Award className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                              {h}
+                            </li>
+                          ))}
+                        </ul>
+                        <Button
+                          asChild
+                          variant={course.featured ? "default" : "outline"}
+                          className="rounded-full w-full"
+                        >
+                          <a
+                            href={`${WHATSAPP_URL}${encodeURIComponent(course.title)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {course.price ? "Book Now" : "Get Price"}
+                          </a>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
