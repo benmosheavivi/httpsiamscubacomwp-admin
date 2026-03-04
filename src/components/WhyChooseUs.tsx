@@ -19,8 +19,8 @@ const reasons = [
   },
   {
     icon: Heart,
-    title: "Small Groups",
-    desc: "Maximum 4 students per instructor. More attention, more fun, better learning.",
+    title: "Personal Touch",
+    desc: "We keep it personal — more attention, more fun, and better learning for every diver.",
   },
 ];
 
