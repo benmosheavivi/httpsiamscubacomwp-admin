@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-ocean.jpg";
-
-const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20a%20dive.";
+import padi from "@/assets/padi-logo.png";
 
 const HeroSection = () => {
   return (
@@ -46,6 +45,16 @@ const HeroSection = () => {
         </motion.p>
 
         <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-4 flex items-center justify-center gap-2"
+        >
+          <img src={padi} alt="PADI" className="h-10 w-auto" />
+          <span className="text-primary-foreground/70 text-sm font-medium tracking-wide">PADI Dive Center</span>
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
@@ -53,13 +62,11 @@ const HeroSection = () => {
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
-              asChild
               size="lg"
               className="rounded-full px-8 text-base bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg"
+              onClick={() => document.querySelector("#fun-diving")?.scrollIntoView({ behavior: "smooth" })}
             >
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                Book a Dive
-              </a>
+              Book a Dive
             </Button>
             <Button
               variant="outline"

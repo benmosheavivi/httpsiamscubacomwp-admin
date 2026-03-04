@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import padi from "@/assets/padi-logo.png";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'm%20interested%20in%20";
 
@@ -114,7 +115,10 @@ const CoursesSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-body text-sm uppercase tracking-[0.2em] mb-2">PADI Courses</p>
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <img src={padi} alt="PADI" className="h-8 w-auto" />
+            <p className="text-primary font-body text-sm uppercase tracking-[0.2em]">PADI Courses</p>
+          </div>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
             Start Your Journey
           </h2>
