@@ -1,0 +1,183 @@
+import { useState, useMemo } from "react";
+import { ChevronLeft, ChevronRight, Sun, Sunset, Moon } from "lucide-react";
+import { startOfWeek, endOfWeek, eachDayOfInterval, addWeeks, subWeeks, format, isBefore, isToday, isTomorrow, startOfDay, isPast } from "date-fns";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+type SlotType = "morning" | "afternoon" | "night";
+
+interface SelectedSlot {
+  date: string; // ISO date string
+  slot: SlotType;
+}
+
+const SLOTS: { type: SlotType; label: string; time: string; icon: typeof Sun }[] = [
+  { type: "morning", label: "Morning", time: "07:30", icon: Sun },
+  { type: "afternoon", label: "Afternoon", time: "13:00", icon: Sunset },
+  { type: "night", label: "Night", time: "18:30", icon: Moon },
+];
+
+const FunDiveCalendar = () => {
+  const [weekOffset, setWeekOffset] = useState(0);
+  const [selected, setSelected] = useState<SelectedSlot | null>(null);
+
+  const today = useMemo(() => new Date(), []);
+
+  const currentWeekStart = useMemo(
+    () => startOfWeek(addWeeks(today, weekOffset), { weekStartsOn: 1 }),
+    [today, weekOffset]
+  );
+
+  const days = useMemo(
+    () => eachDayOfInterval({ start: currentWeekStart, end: endOfWeek(currentWeekStart, { weekStartsOn: 1 }) }),
+    [currentWeekStart]
+  );
+
+  const isAfterCutoff = today.getHours() >= 16;
+
+  const isDayDisabled = (day: Date) => {
+    if (isBefore(startOfDay(day), startOfDay(today))) return true;
+    if (isToday(day)) return true; // can't book same day
+    if (isTomorrow(day) && isAfterCutoff) return true;
+    return false;
+  };
+
+  const canGoPrev = weekOffset > 0;
+
+  const handleSelect = (dateStr: string, slot: SlotType) => {
+    if (selected?.date === dateStr && selected?.slot === slot) {
+      setSelected(null);
+    } else {
+      setSelected({ date: dateStr, slot });
+    }
+  };
+
+  return (
+    <div className="w-full">
+      {/* Week Navigation */}
+      <div className="flex items-center justify-between mb-6">
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => setWeekOffset((o) => o - 1)}
+          disabled={!canGoPrev}
+          className="rounded-full"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </Button>
+        <h3 className="font-display text-lg md:text-xl font-semibold text-foreground">
+          {format(days[0], "MMM d")} – {format(days[6], "MMM d, yyyy")}
+        </h3>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => setWeekOffset((o) => o + 1)}
+          className="rounded-full"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </Button>
+      </div>
+
+      {/* Desktop: 7-column grid */}
+      <div className="hidden md:grid grid-cols-7 gap-2">
+        {days.map((day) => {
+          const dateStr = format(day, "yyyy-MM-dd");
+          const disabled = isDayDisabled(day);
+
+          return (
+            <div key={dateStr} className="flex flex-col gap-2">
+              <div className={cn(
+                "text-center py-2 rounded-lg font-display font-semibold text-sm",
+                isToday(day) ? "bg-primary/10 text-primary" : "text-foreground"
+              )}>
+                <div className="text-xs text-muted-foreground font-body">{format(day, "EEE")}</div>
+                <div>{format(day, "d")}</div>
+              </div>
+
+              {SLOTS.map(({ type, label, time, icon: Icon }) => {
+                const isSelected = selected?.date === dateStr && selected?.slot === type;
+                return (
+                  <button
+                    key={type}
+                    disabled={disabled}
+                    onClick={() => handleSelect(dateStr, type)}
+                    className={cn(
+                      "flex flex-col items-center gap-1 p-3 rounded-xl border transition-all text-xs",
+                      disabled
+                        ? "opacity-30 cursor-not-allowed bg-muted border-border"
+                        : isSelected
+                          ? "bg-primary text-primary-foreground border-primary shadow-md scale-105"
+                          : "bg-card border-border hover:border-primary/50 hover:shadow-sm cursor-pointer"
+                    )}
+                  >
+                    <Icon className="h-4 w-4" />
+                    <span className="font-semibold">{label}</span>
+                    <span className={cn("text-[10px]", isSelected ? "text-primary-foreground/80" : "text-muted-foreground")}>{time}</span>
+                  </button>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Mobile: vertical stack */}
+      <div className="md:hidden flex flex-col gap-3">
+        {days.map((day) => {
+          const dateStr = format(day, "yyyy-MM-dd");
+          const disabled = isDayDisabled(day);
+
+          return (
+            <div key={dateStr} className={cn(
+              "rounded-xl border p-3",
+              disabled ? "opacity-40 bg-muted" : "bg-card"
+            )}>
+              <div className={cn(
+                "font-display font-semibold text-sm mb-2",
+                isToday(day) ? "text-primary" : "text-foreground"
+              )}>
+                {format(day, "EEEE, MMM d")}
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                {SLOTS.map(({ type, label, time, icon: Icon }) => {
+                  const isSelected = selected?.date === dateStr && selected?.slot === type;
+                  return (
+                    <button
+                      key={type}
+                      disabled={disabled}
+                      onClick={() => handleSelect(dateStr, type)}
+                      className={cn(
+                        "flex flex-col items-center gap-1 p-3 rounded-lg border transition-all text-xs",
+                        disabled
+                          ? "cursor-not-allowed"
+                          : isSelected
+                            ? "bg-primary text-primary-foreground border-primary shadow-md"
+                            : "border-border hover:border-primary/50 cursor-pointer"
+                      )}
+                    >
+                      <Icon className="h-4 w-4" />
+                      <span className="font-semibold">{label}</span>
+                      <span className={cn("text-[10px]", isSelected ? "text-primary-foreground/80" : "text-muted-foreground")}>{time}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Selection summary */}
+      {selected && (
+        <div className="mt-6 text-center p-4 bg-primary/5 rounded-xl border border-primary/20">
+          <p className="text-sm text-muted-foreground">Selected slot</p>
+          <p className="font-display font-semibold text-foreground">
+            {format(new Date(selected.date + "T12:00:00"), "EEEE, MMMM d")} — {SLOTS.find(s => s.type === selected.slot)?.label} ({SLOTS.find(s => s.type === selected.slot)?.time})
+          </p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default FunDiveCalendar;

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Compass, Clock, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import diveAction from "@/assets/dive-action.jpg";
 import diveCoralGroup from "@/assets/dive-coral-group.jpg";
 import diveReef from "@/assets/dive-reef.jpg";
@@ -66,7 +67,7 @@ const FunDivingSection = () => {
             <p className="text-muted-foreground text-sm mb-1">Starting from</p>
             <p className="text-4xl font-bold text-foreground font-display">฿1,800 <span className="text-lg font-normal text-muted-foreground">/ dive</span></p>
             <Button asChild className="rounded-full mt-6 px-8 bg-accent hover:bg-accent/90 text-accent-foreground">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Fun Dives</a>
+              <Link to="/fun-dive-booking">Book Fun Dives</Link>
             </Button>
           </div>
         </div>
