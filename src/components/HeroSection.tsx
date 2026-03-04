@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-ocean.jpg";
 
-const WHATSAPP_URL = "https://wa.me/66123456789?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20a%20dive.";
+const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20a%20dive.";
 
 const HeroSection = () => {
   return (

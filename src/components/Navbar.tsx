@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const WHATSAPP_URL = "https://wa.me/66123456789?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20a%20dive.";
+const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20a%20dive.";
 
 const navLinks = [
   { label: "Courses", href: "#courses" },
