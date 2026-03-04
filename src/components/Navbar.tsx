@@ -35,7 +35,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex flex-col items-center px-4">
         {/* Top row: mobile toggle + logo centered + book now */}
-        <div className="flex items-center justify-between w-full h-16 md:h-20">
+        <div className="flex items-center justify-between w-full py-2">
           {/* Desktop left links */}
           <div className="hidden md:flex items-center gap-6">
             {navLinks.slice(0, 2).map((link) => (
