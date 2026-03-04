@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck } from "lucide-react";
+import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck, Info } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import padi from "@/assets/padi-logo.png";
+import CourseDetailDialog from "./CourseDetailDialog";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'm%20interested%20in%20";
 
@@ -17,6 +19,7 @@ const categories = [
         price: "2,600",
         duration: "1 day",
         highlights: ["No experience needed", "Pool + ocean dive", "PADI certified instructor"],
+        hasDetails: true,
       },
       {
         icon: BookOpen,
@@ -25,6 +28,7 @@ const categories = [
         duration: "3–4 days",
         highlights: ["Dive to 18m worldwide", "Lifetime certification", "4 open water dives"],
         featured: true,
+        hasDetails: true,
       },
     ],
   },
@@ -38,6 +42,7 @@ const categories = [
         price: "10,000",
         duration: "2 days",
         highlights: ["Dive to 30m", "5 adventure dives", "Deep & navigation skills"],
+        hasDetails: true,
       },
       {
         icon: ShieldCheck,
@@ -45,6 +50,7 @@ const categories = [
         price: "10,000",
         duration: "3–4 days",
         highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
+        hasDetails: true,
       },
     ],
   },
@@ -105,7 +111,10 @@ const categories = [
 ];
 
 const CoursesSection = () => {
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+
   return (
+    <>
     <section id="courses" className="section-padding bg-background">
       <div className="container mx-auto">
         <motion.div
@@ -184,19 +193,31 @@ const CoursesSection = () => {
                             </li>
                           ))}
                         </ul>
-                        <Button
-                          asChild
-                          variant={course.featured ? "default" : "outline"}
-                          className="rounded-full w-full"
-                        >
-                          <a
-                            href={`${WHATSAPP_URL}${encodeURIComponent(course.title)}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <div className="space-y-2">
+                          {course.hasDetails && (
+                            <Button
+                              variant="ghost"
+                              className="rounded-full w-full text-primary hover:text-primary/80"
+                              onClick={() => setSelectedCourse(course.title)}
+                            >
+                              <Info className="h-4 w-4 mr-1" />
+                              More Details
+                            </Button>
+                          )}
+                          <Button
+                            asChild
+                            variant={course.featured ? "default" : "outline"}
+                            className="rounded-full w-full"
                           >
-                            {course.price ? "Book Now" : "Get Price"}
-                          </a>
-                        </Button>
+                            <a
+                              href={`${WHATSAPP_URL}${encodeURIComponent(course.title)}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {course.price ? "Book Now" : "Get Price"}
+                            </a>
+                          </Button>
+                        </div>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -207,6 +228,13 @@ const CoursesSection = () => {
         </div>
       </div>
     </section>
+
+    <CourseDetailDialog
+      courseTitle={selectedCourse || ""}
+      open={!!selectedCourse}
+      onOpenChange={(open) => !open && setSelectedCourse(null)}
+    />
+    </>
   );
 };
 
