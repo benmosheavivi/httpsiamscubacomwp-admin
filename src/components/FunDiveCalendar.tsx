@@ -16,7 +16,7 @@ interface SelectedSlot {
 const SLOTS: { type: SlotType; label: string; time: string; icon: typeof Sun }[] = [
   { type: "morning", label: "Morning", time: "6:20", icon: Sun },
   { type: "afternoon", label: "Afternoon", time: "11:00", icon: Sunset },
-  { type: "night", label: "Night", time: "11:15", icon: Moon },
+  { type: "night", label: "Night", time: "17:30", icon: Moon },
 ];
 
 const FunDiveCalendar = () => {
