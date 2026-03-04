@@ -10,7 +10,7 @@ const courses = [
     icon: Fish,
     level: "Discovery",
     title: "Discover Scuba Diving",
-    price: "2,500",
+    price: "2,600",
     duration: "1 day",
     highlights: ["No experience needed", "Pool + ocean dive", "PADI certified instructor"],
     color: "bg-ocean-surface text-secondary-foreground",
