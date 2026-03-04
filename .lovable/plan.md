@@ -1,26 +1,29 @@
 
 
-## Fun Dive Weekly Schedule — Plan
+## Fun Dive Booking Form — Individual Diver
 
-Build a weekly calendar (not monthly) showing 7 days at a time with navigation to go forward/back by week.
+When a diver selects a date + slot on the calendar, a dialog opens with a form for a **single diver** (no "number of divers" field — each person fills their own form).
 
-### New Page: `/fun-dive-booking`
+### Form Fields
 
-**`src/pages/FunDiveBookingPage.tsx`** — Page wrapper with ocean theme, back-to-home link, contains the weekly calendar component.
+1. **Full Name** — text, required
+2. **Email** — email, required, validated
+3. **WhatsApp Number** — tel, required
+4. **Certification Level** — select dropdown (Open Water, Advanced Open Water, Rescue Diver, Divemaster, Instructor)
+5. **Diving License Photo** — file upload (image, max 5MB), with preview thumbnail
+6. **Last Dive Record (Logbook)** — file upload (image, max 5MB), with preview thumbnail
 
-### New Component: `src/components/FunDiveCalendar.tsx`
+### UX Flow
 
-- **Weekly view:** Shows 7 days in a row (Mon–Sun or starting from today). Each day is a column.
-- **Three rows per day:** Morning (07:30), Afternoon (13:00), Night (18:30) — displayed as selectable slot cards in a grid.
-- **Week navigation:** Left/right arrows to go to previous/next week. Cannot navigate to past weeks.
-- **Cutoff rule:** Past dates disabled. Tomorrow disabled if current time ≥ 16:00.
-- **Selection:** Clicking a slot highlights it. For now, just visual selection — the registration form comes later.
-- **Mobile:** On small screens, stack days vertically or use horizontal scroll.
+- Selecting a slot opens a **Dialog** (modal)
+- Dialog header shows the selected date and session (e.g. "Wednesday, March 11 — Morning (07:30)")
+- Validated with **zod + react-hook-form**
+- Submit button: "Send Booking Request"
+- On submit (no backend yet): success toast, dialog closes, selection resets
+- Scrollable on mobile
 
-### Edits
+### Files
 
-1. **Create** `src/components/FunDiveCalendar.tsx`
-2. **Create** `src/pages/FunDiveBookingPage.tsx`
-3. **Edit** `src/App.tsx` — add `/fun-dive-booking` route
-4. **Edit** `src/components/FunDivingSection.tsx` — change CTA button from WhatsApp link to `/fun-dive-booking`
+1. **Create** `src/components/FunDiveBookingForm.tsx` — form with zod validation, file uploads with preview, certification dropdown
+2. **Edit** `src/components/FunDiveCalendar.tsx` — when slot is selected, open a Dialog containing the form; pass date + slot info as props
 
