@@ -56,7 +56,7 @@ const Navbar = () => {
 
           {/* Centered Logo */}
           <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center">
-            <img src={logo} alt="Siam Scuba" className="h-14 md:h-16 w-auto" />
+            <img src={logo} alt="Siam Scuba" className="h-24 md:h-28 w-auto" />
           </button>
 
           {/* Desktop right links */}
