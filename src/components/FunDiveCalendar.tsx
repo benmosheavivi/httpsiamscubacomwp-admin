@@ -1,13 +1,15 @@
 import { useState, useMemo } from "react";
 import { ChevronLeft, ChevronRight, Sun, Sunset, Moon } from "lucide-react";
-import { startOfWeek, endOfWeek, eachDayOfInterval, addWeeks, subWeeks, format, isBefore, isToday, isTomorrow, startOfDay, isPast } from "date-fns";
+import { startOfWeek, endOfWeek, eachDayOfInterval, addWeeks, format, isToday, isTomorrow, startOfDay, isBefore } from "date-fns";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import FunDiveBookingForm from "@/components/FunDiveBookingForm";
 
 type SlotType = "morning" | "afternoon" | "night";
 
 interface SelectedSlot {
-  date: string; // ISO date string
+  date: string;
   slot: SlotType;
 }
 
@@ -20,6 +22,7 @@ const SLOTS: { type: SlotType; label: string; time: string; icon: typeof Sun }[]
 const FunDiveCalendar = () => {
   const [weekOffset, setWeekOffset] = useState(0);
   const [selected, setSelected] = useState<SelectedSlot | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const today = useMemo(() => new Date(), []);
 
@@ -37,7 +40,7 @@ const FunDiveCalendar = () => {
 
   const isDayDisabled = (day: Date) => {
     if (isBefore(startOfDay(day), startOfDay(today))) return true;
-    if (isToday(day)) return true; // can't book same day
+    if (isToday(day)) return true;
     if (isTomorrow(day) && isAfterCutoff) return true;
     return false;
   };
@@ -45,12 +48,16 @@ const FunDiveCalendar = () => {
   const canGoPrev = weekOffset > 0;
 
   const handleSelect = (dateStr: string, slot: SlotType) => {
-    if (selected?.date === dateStr && selected?.slot === slot) {
-      setSelected(null);
-    } else {
-      setSelected({ date: dateStr, slot });
-    }
+    setSelected({ date: dateStr, slot });
+    setDialogOpen(true);
   };
+
+  const handleFormSuccess = () => {
+    setDialogOpen(false);
+    setSelected(null);
+  };
+
+  const selectedSlotInfo = selected ? SLOTS.find((s) => s.type === selected.slot) : null;
 
   return (
     <div className="w-full">
@@ -167,15 +174,19 @@ const FunDiveCalendar = () => {
         })}
       </div>
 
-      {/* Selection summary */}
-      {selected && (
-        <div className="mt-6 text-center p-4 bg-primary/5 rounded-xl border border-primary/20">
-          <p className="text-sm text-muted-foreground">Selected slot</p>
-          <p className="font-display font-semibold text-foreground">
-            {format(new Date(selected.date + "T12:00:00"), "EEEE, MMMM d")} — {SLOTS.find(s => s.type === selected.slot)?.label} ({SLOTS.find(s => s.type === selected.slot)?.time})
-          </p>
-        </div>
-      )}
+      {/* Booking Dialog */}
+      <Dialog open={dialogOpen} onOpenChange={(open) => { setDialogOpen(open); if (!open) setSelected(null); }}>
+        <DialogContent className="sm:max-w-md max-h-[90vh] overflow-hidden p-6">
+          {selected && selectedSlotInfo && (
+            <FunDiveBookingForm
+              date={selected.date}
+              slotLabel={selectedSlotInfo.label}
+              slotTime={selectedSlotInfo.time}
+              onSuccess={handleFormSuccess}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
