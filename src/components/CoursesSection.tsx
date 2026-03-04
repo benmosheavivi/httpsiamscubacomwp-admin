@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle } from "lucide-react";
+import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -37,6 +37,13 @@ const categories = [
         price: "10,000",
         duration: "2 days",
         highlights: ["Dive to 30m", "5 adventure dives", "Deep & navigation skills"],
+      },
+      {
+        icon: ShieldCheck,
+        title: "Rescue Diver",
+        price: "10,000",
+        duration: "3–4 days",
+        highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
       },
     ],
   },

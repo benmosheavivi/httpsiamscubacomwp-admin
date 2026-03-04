@@ -64,7 +64,7 @@ const FunDivingSection = () => {
 
           <div className="mt-12 bg-card rounded-2xl p-8 shadow-md inline-block">
             <p className="text-muted-foreground text-sm mb-1">Starting from</p>
-            <p className="text-4xl font-bold text-foreground font-display">฿1,000 <span className="text-lg font-normal text-muted-foreground">/ dive</span></p>
+            <p className="text-4xl font-bold text-foreground font-display">฿1,800 <span className="text-lg font-normal text-muted-foreground">/ dive</span></p>
             <Button asChild className="rounded-full mt-6 px-8 bg-accent hover:bg-accent/90 text-accent-foreground">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Fun Dives</a>
             </Button>
