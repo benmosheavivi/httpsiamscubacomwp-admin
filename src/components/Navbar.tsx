@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Waves } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/siam-logo.png";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20a%20dive.";
 
@@ -34,11 +35,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
         {/* Logo */}
-        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2">
-          <Waves className="h-7 w-7 text-primary" />
-          <span className="font-display text-xl font-bold tracking-tight text-foreground">
-            Siam Scuba
-          </span>
+        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center">
+          <img src={logo} alt="Siam Scuba" className="h-9 w-auto" />
         </button>
 
         {/* Desktop links */}

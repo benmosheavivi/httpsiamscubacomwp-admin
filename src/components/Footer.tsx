@@ -1,4 +1,6 @@
-import { Waves, MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
+import logo from "@/assets/siam-logo.png";
+import padi from "@/assets/padi-logo.png";
 
 const Footer = () => {
   return (
@@ -7,13 +9,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Waves className="h-6 w-6 text-primary" />
-              <span className="font-display text-lg font-bold text-background">Siam Scuba</span>
-            </div>
-            <p className="text-sm text-background/50">
+            <img src={logo} alt="Siam Scuba" className="h-10 w-auto mb-3" />
+            <p className="text-sm text-background/50 mb-3">
               Professional PADI dive center on Koh Tao, Thailand. Small groups, big adventures.
             </p>
+            <img src={padi} alt="PADI Dive Center" className="h-8 w-auto opacity-70" />
           </div>
 
           {/* Contact */}

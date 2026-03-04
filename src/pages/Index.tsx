@@ -6,6 +6,7 @@ import BoatsSection from "@/components/BoatsSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import BookingCTA from "@/components/BookingCTA";
 import Footer from "@/components/Footer";
+import FloatingInstagram from "@/components/FloatingInstagram";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <WhyChooseUs />
       <BookingCTA />
       <Footer />
+      <FloatingInstagram />
     </div>
   );
 };
