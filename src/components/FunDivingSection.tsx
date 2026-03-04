@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Compass, Clock, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const WHATSAPP_URL = "https://wa.me/66123456789?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20fun%20dives.";
+const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20fun%20dives.";
 
 const FunDivingSection = () => {
   return (
