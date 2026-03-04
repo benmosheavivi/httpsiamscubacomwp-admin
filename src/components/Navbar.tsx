@@ -33,32 +33,51 @@ const Navbar = () => {
         scrolled ? "glass shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
-        {/* Logo */}
-        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center">
-          <img src={logo} alt="Siam Scuba" className="h-9 w-auto" />
-        </button>
+      <div className="container mx-auto flex flex-col items-center px-4">
+        {/* Top row: mobile toggle + logo centered + book now */}
+        <div className="flex items-center justify-between w-full h-16 md:h-20">
+          {/* Desktop left links */}
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.slice(0, 2).map((link) => (
+              <button
+                key={link.href}
+                onClick={() => handleNav(link.href)}
+                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => handleNav(link.href)}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-            >
-              {link.label}
-            </button>
-          ))}
-          <Button asChild size="sm" className="rounded-full px-6 bg-accent hover:bg-accent/90 text-accent-foreground">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Now</a>
-          </Button>
+          {/* Mobile hamburger (left side) */}
+          <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+
+          {/* Centered Logo */}
+          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center">
+            <img src={logo} alt="Siam Scuba" className="h-14 md:h-16 w-auto" />
+          </button>
+
+          {/* Desktop right links */}
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.slice(2).map((link) => (
+              <button
+                key={link.href}
+                onClick={() => handleNav(link.href)}
+                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
+            <Button asChild size="sm" className="rounded-full px-6 bg-accent hover:bg-accent/90 text-accent-foreground">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Now</a>
+            </Button>
+          </div>
+
+          {/* Mobile: empty spacer for balance */}
+          <div className="md:hidden w-6" />
         </div>
-
-        {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
       </div>
 
       {/* Mobile menu */}
