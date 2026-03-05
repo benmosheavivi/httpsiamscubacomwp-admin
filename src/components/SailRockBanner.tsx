@@ -2,17 +2,22 @@ import { motion } from "framer-motion";
 import { Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import sailRockSign from "@/assets/sail-rock-sign.png";
+import sailRockChimney from "@/assets/sail-rock-chimney.png";
 
 const SailRockBanner = () => {
   return (
-    <section className="relative overflow-hidden bg-ocean-deep py-8 md:py-10">
-      {/* Animated wave background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary/20 via-transparent to-primary/20" />
+    <section className="relative overflow-hidden py-12 md:py-16">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img
+          src={sailRockChimney}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-ocean-deep/80" />
       </div>
 
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -36,13 +41,7 @@ const SailRockBanner = () => {
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="flex items-center gap-4"
         >
-          <img
-            src={sailRockSign}
-            alt="Sail Rock"
-            className="h-16 md:h-20 w-auto hidden md:block"
-          />
           <Button
             asChild
             size="lg"
