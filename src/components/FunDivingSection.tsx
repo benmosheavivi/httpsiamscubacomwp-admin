@@ -8,6 +8,9 @@ import diveAction from "@/assets/dive-action.jpg";
 import diveCoralGroup from "@/assets/dive-coral-group.jpg";
 import diveReef from "@/assets/dive-reef.jpg";
 import diveExplorer from "@/assets/dive-explorer.jpg";
+import sailRockChimney from "@/assets/sail-rock-chimney.png";
+import sailRockSilhouette from "@/assets/sail-rock-silhouette.png";
+import sailRockCoral from "@/assets/sail-rock-coral.png";
 import CourseDetailDialog from "./CourseDetailDialog";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20fun%20dives.";
@@ -40,11 +43,17 @@ const FunDivingSection = () => {
             className="mb-12"
           >
             <Card className="border-0 shadow-lg bg-card overflow-hidden">
+              <div className="grid grid-cols-3 h-40 md:h-48">
+                <img src={sailRockChimney} alt="Divers at Sail Rock Chimney" className="w-full h-full object-cover" />
+                <img src={sailRockSilhouette} alt="Diver silhouette at Sail Rock" className="w-full h-full object-cover" />
+                <img src={sailRockCoral} alt="Sail Rock coral and fish" className="w-full h-full object-cover" />
+              </div>
               <CardContent className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <Waves className="h-8 w-8 text-primary" />
-                </div>
                 <div className="flex-1 text-center md:text-left">
+                  <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <Waves className="h-5 w-5 text-primary" />
+                    <span className="text-primary text-xs font-semibold uppercase tracking-widest">Crown Jewel of the Gulf</span>
+                  </div>
                   <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
                     Sail Rock (Hin Bai) — The Best Dive in the Gulf
                   </h3>
