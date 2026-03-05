@@ -1,7 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Clock, CheckCircle2, Gift, Tag, AlertCircle, MessageCircle } from "lucide-react";
+import { Clock, CheckCircle2, Gift, Tag, AlertCircle, MessageCircle, Waves, Fish, Anchor } from "lucide-react";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'm%20interested%20in%20";
 
@@ -12,6 +12,8 @@ interface CourseDetail {
   itinerary?: { day: string; description: string }[];
   included?: string[];
   dives?: { name: string; description: string }[];
+  highlights?: { name: string; description: string }[];
+  tripDetails?: string[];
   learns?: string[];
   structure?: string[];
   prerequisites?: string[];
@@ -22,65 +24,95 @@ interface CourseDetail {
 }
 
 const courseDetails: Record<string, CourseDetail> = {
+  "Sail Rock": {
+    header: "Sail Rock: The Ultimate Diving Adventure",
+    intro: "Located between Koh Tao and Koh Phangan, Sail Rock is an open-ocean pinnacle that rises 15m above the surface and drops to 40m. It is world-famous for its incredible fish density and unique topography.",
+    highlights: [
+      { name: "The Chimney", description: "A legendary vertical swim-through. Enter at 18 meters and exit at 5 meters—a must-do for every diver." },
+      { name: "Whale Shark Hotspot", description: "This is the best place in Thailand to meet the ocean's gentle giants." },
+      { name: "Cloud of Fish", description: "Swim through massive schools of Chevron Barracuda, Trevally, and Batfish." },
+    ],
+    tripDetails: [
+      "Departs every 3 days at 07:30, returns at 16:30.",
+      "3 dives: 2 at Sail Rock + 1 at a bonus site like Shark Island.",
+      "Full breakfast and an authentic Thai buffet lunch served onboard.",
+    ],
+    prerequisites: [
+      "Open Water certification (Max 18m).",
+      "Advanced divers can explore the full 40m depth.",
+    ],
+    price: "3,800 THB",
+    included: [
+      "Full gear rental included.",
+      "Professional dive guide.",
+      "Breakfast, Thai buffet lunch, and refreshments.",
+    ],
+  },
   "Discover Scuba Diving": {
-    header: "Our one-day introduction PADI Discover Scuba Diving in Koh Tao",
-    intro: "Curious about the underwater world but not ready for a full course? Our one-day introduction is the perfect way to start your adventure without any prior experience needed.",
+    header: "Your First Breath Underwater: One-Day Experience",
+    intro: "Not a certified diver? No problem! Our DSD program is a safe, relaxed, and exciting introduction to the ocean. You'll be exploring coral reefs by the afternoon.",
     schedule: [
-      { time: "10:30", description: "Meet at the shop for a basic safety briefing and gear fitting." },
-      { time: "11:30", description: "Board our boat for two incredible dives at Koh Tao's vibrant coral reefs." },
-      { time: "16:00", description: "Return to the island with a massive smile!" },
+      { time: "10:30", description: "Meet your instructor, fit your gear, and learn the basics." },
+      { time: "12:30", description: "Boat departure. Two dives at shallow, vibrant reefs (Max 12m)." },
+      { time: "16:00", description: "Return to land as a new underwater explorer!" },
     ],
     included: [
-      "Professional guidance (max 2:1 student-to-instructor ratio for safety).",
+      "Personal instructor (Max 2:1 ratio).",
       "Full set of high-quality diving equipment.",
-      "Diving insurance and boat refreshments (fresh fruit, cookies, coffee, tea).",
+      "Diving insurance and boat snacks.",
     ],
     price: "2,600 THB",
-    extras: ["Loved it? Add a second dive for just 1,000 THB on the day!"],
+    extras: ["Add a second dive for just +1,000 THB on the day!"],
   },
   "Open Water Diver": {
-    header: "Get Certified: PADI Open Water Course Koh Tao",
-    intro: "Become a certified diver for life! This world-recognized certification allows you to dive up to 18 meters anywhere on the planet. Our course is designed to be safe, fun, and personalized.",
+    header: "Get Your Lifetime Certification",
+    intro: "This is the world's most popular diving course. In just 2.5 days, you will be certified to dive anywhere in the world up to 18 meters deep!",
     itinerary: [
-      { day: "Day 1", description: "Morning theory session followed by practical training in our private pool." },
-      { day: "Day 2", description: "Theory review and your first two ocean dives (max 12m) to practice your new skills." },
-      { day: "Day 3", description: "Two final dives to 18m at some of Koh Tao's premier dive sites, like Chumphon Pinnacle." },
+      { day: "Day 1", description: "Theory and pool practice. Learn the essential safety skills." },
+      { day: "Day 2", description: "Two ocean dives to 12m. Feel the weightlessness!" },
+      { day: "Day 3", description: "Two deeper dives to 18m and graduation party." },
     ],
-    perks: ["Bonus: 2 Nights of free accommodation at our dorms!"],
+    perks: [
+      "Small Groups: Max 6 students per instructor for better care.",
+      "Free Stay: 2 nights of accommodation included at our club!",
+    ],
+    included: [
+      "Everything included: gear, insurance, certification, and accommodation.",
+    ],
     price: "11,000 THB",
   },
   "Advanced Open Water": {
-    header: "Level Up Your Skills: PADI Advanced Open Water Diver",
-    intro: "Take your diving to the next level! This practical course is all about experience—no exams and no heavy theory. You will explore deeper waters and discover new underwater specialties.",
+    header: "Explore Further: Depth & Adventure",
+    intro: "No exams, all action! This course is about fine-tuning your skills and exploring the best sites in Koh Tao, including wrecks and deep pinnacles.",
     dives: [
-      { name: "Deep Dive", description: "Reach 30 meters and see a whole new world." },
-      { name: "Wreck Dive", description: "Explore the famous HTMS Sattakut." },
-      { name: "Night Dive", description: "See the reef come alive after dark." },
-      { name: "Navigation", description: "Master the compass and natural landmarks." },
-      { name: "Peak Performance Buoyancy", description: "Perfect your trim and glide like a pro." },
+      { name: "Deep", description: "Go down to 30 meters." },
+      { name: "Navigation", description: "Master the underwater compass." },
+      { name: "Night", description: "Experience the reef's nightlife." },
+      { name: "Wreck", description: "Dive the famous HTMS Sattakut." },
+      { name: "Buoyancy", description: "Glide like a pro and save your air." },
     ],
-    perks: ["Bonus: 1 Night of free accommodation + a limited edition Club T-shirt!"],
+    perks: ["1 free night of stay + a limited edition Club T-shirt!"],
     price: "10,000 THB",
     prerequisites: ["Open Water certification"],
     specialOffer: "Get 500 THB off your next Rescue Course if you book directly after!",
   },
   "Rescue Diver": {
-    header: "Become the Buddy Everyone Wants: PADI Rescue Diver Course",
-    intro: "Challenging, rewarding, and incredibly fun! The Rescue Diver course shifts your focus from yourself to others, teaching you how to manage emergencies and prevent problems before they happen.",
+    header: "Serious Fun: Become a Hero Underwater",
+    intro: "Transform from a diver into a leader. You'll learn how to anticipate problems and manage emergencies, making you the best buddy in the water.",
     learns: [
-      "Self-rescue techniques and diver stress management.",
-      "Emergency oxygen delivery and first aid for diving injuries.",
-      "Search patterns for missing divers and surfacing unresponsive divers.",
+      "Self-rescue and managing diver stress.",
+      "Missing diver search and recovery patterns.",
+      "Surfacing an unconscious diver.",
     ],
     structure: [
-      "Duration: 2-3 Days.",
+      "Duration: 2-3 days of intense, rewarding scenarios.",
       "Includes theory, 10 rescue exercises, and 2 realistic open-water scenarios.",
     ],
     prerequisites: [
       "Advanced Open Water certification (or equivalent).",
       "EFR (First Aid/CPR) certification valid within the last 12 months.",
     ],
-    price: "10,000 THB (Add EFR for 4,500 THB if needed)",
+    price: "12,000 THB (Add EFR for 4,000 THB if needed)",
   },
 };
 
@@ -108,11 +140,44 @@ const CourseDetailDialog = ({ courseTitle, open, onOpenChange }: CourseDetailDia
               </DialogDescription>
             </DialogHeader>
 
+            {/* Top Highlights (Sail Rock) */}
+            {detail.highlights && (
+              <div className="space-y-3">
+                <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
+                  <Anchor className="h-4 w-4 text-primary" /> Top Highlights
+                </h4>
+                <div className="space-y-2">
+                  {detail.highlights.map((h) => (
+                    <div key={h.name} className="text-sm">
+                      <span className="font-semibold text-foreground">{h.name}:</span>{" "}
+                      <span className="text-foreground/80">{h.description}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Trip Details (Sail Rock) */}
+            {detail.tripDetails && (
+              <div className="space-y-3">
+                <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-primary" /> Trip Details
+                </h4>
+                <ul className="space-y-1.5">
+                  {detail.tripDetails.map((t) => (
+                    <li key={t} className="text-sm text-foreground/80 flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span> {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Schedule */}
             {detail.schedule && (
               <div className="space-y-3">
                 <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-primary" /> Schedule
+                  <Clock className="h-4 w-4 text-primary" /> Your Day
                 </h4>
                 <div className="space-y-2">
                   {detail.schedule.map((s) => (
@@ -129,7 +194,7 @@ const CourseDetailDialog = ({ courseTitle, open, onOpenChange }: CourseDetailDia
             {detail.itinerary && (
               <div className="space-y-3">
                 <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-primary" /> Detailed Itinerary (2.5 Days)
+                  <Clock className="h-4 w-4 text-primary" /> The Course Plan
                 </h4>
                 <div className="space-y-2">
                   {detail.itinerary.map((d) => (
@@ -146,7 +211,7 @@ const CourseDetailDialog = ({ courseTitle, open, onOpenChange }: CourseDetailDia
             {detail.dives && (
               <div className="space-y-3">
                 <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-primary" /> 5 Adventure Dives
+                  <Fish className="h-4 w-4 text-primary" /> 5 Specialty Dives
                 </h4>
                 <div className="space-y-2">
                   {detail.dives.map((d) => (
@@ -163,7 +228,7 @@ const CourseDetailDialog = ({ courseTitle, open, onOpenChange }: CourseDetailDia
             {detail.learns && (
               <div className="space-y-3">
                 <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-primary" /> What You'll Learn
+                  <CheckCircle2 className="h-4 w-4 text-primary" /> Skills You'll Master
                 </h4>
                 <ul className="space-y-1.5">
                   {detail.learns.map((l) => (
@@ -209,7 +274,7 @@ const CourseDetailDialog = ({ courseTitle, open, onOpenChange }: CourseDetailDia
             {detail.prerequisites && (
               <div className="space-y-3">
                 <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
-                  <AlertCircle className="h-4 w-4 text-accent" /> Prerequisites
+                  <AlertCircle className="h-4 w-4 text-accent" /> Requirements
                 </h4>
                 <ul className="space-y-1.5">
                   {detail.prerequisites.map((p) => (

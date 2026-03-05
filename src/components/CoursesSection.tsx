@@ -47,7 +47,7 @@ const categories = [
   {
     icon: ShieldCheck,
     title: "Rescue Diver",
-    price: "10,000",
+    price: "12,000",
     duration: "3–4 days",
     highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
     hasDetails: true
