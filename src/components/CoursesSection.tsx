@@ -125,7 +125,7 @@ const CoursesSection = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center gap-3 mb-2">
-            <img src={padi} alt="PADI" className="h-8 w-auto" />
+            <img src={padi} alt="PADI" className="h-32 w-auto" />
             <p className="text-primary font-body text-sm uppercase tracking-[0.2em]">PADI Courses</p>
           </div>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
