@@ -40,7 +40,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-6 text-primary-foreground/80 font-body text-lg md:text-xl max-w-2xl mx-auto">
+          className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-accent font-serif font-bold">
           
           Flexible schedules, two custom dive boats, and professional PADI instruction on Sairee Beach.
         </motion.p>
