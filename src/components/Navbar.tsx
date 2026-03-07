@@ -83,15 +83,25 @@ const Navbar = () => {
 
           {/* Desktop right links */}
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.slice(2).map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNav(link.href)}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.slice(2).map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  key={link.href}
+                  onClick={() => handleNav(link.href)}
+                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </button>
+              )
+            )}
             <Button asChild size="sm" className="rounded-full px-6 bg-accent hover:bg-accent/90 text-accent-foreground">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Now</a>
             </Button>
