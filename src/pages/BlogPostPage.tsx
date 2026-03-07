@@ -93,6 +93,17 @@ const BlogPostPage = () => {
                     {p}
                   </p>
                 ))}
+                {section.mapLink && (
+                  <a
+                    href={section.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+                  >
+                    <MapPin className="h-4 w-4" />
+                    View on Google Maps
+                  </a>
+                )}
                 {section.image && (
                   <img
                     src={section.image}
