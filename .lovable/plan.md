@@ -1,52 +1,49 @@
 
 
-# Content Strategy Implementation Plan
+# Koh Tao Guide Blog — Implementation Plan
 
 ## Overview
-Implement the full content strategy from the document: add Sail Rock as a featured experience, update all course detail modals with new SEO-optimized content, and add a homepage Sail Rock banner.
+Add a blog section with 6 pre-written articles about Koh Tao (restaurants, beaches, activities, nightlife). Includes a listing page, individual article pages, homepage preview, and navbar link.
 
-## Changes
+## Files to Create
 
-### 1. Homepage Sail Rock Banner (New Component)
-Create a `SailRockBanner.tsx` component -- a bold, eye-catching horizontal banner between the Courses and Fun Diving sections (or just above Fun Diving).
-- Text: "We go to Sail Rock every 3 days!"
-- Button links to the Fun Dive Booking page
-- Styled as a high-contrast accent strip
+### 1. `src/data/blogPosts.ts`
+Static data file with 6 articles, each containing: slug, title, category, excerpt, coverImage (using Unsplash URLs), date, and content sections (heading + paragraphs + optional image). Categories: Food, Beaches, Activities, Nightlife.
 
-### 2. Sail Rock Card on Fun Diving Section
-Add a prominent "Sail Rock (Hin Bai)" card in `FunDivingSection.tsx` above or alongside the existing content, with:
-- Title: "Sail Rock (Hin Bai) -- The Best Dive in the Gulf"
-- Short blurb about the Chimney and Whale Sharks
-- "More Details" button opening a Sail Rock detail modal
+Articles:
+- "Best Restaurants on Koh Tao" (Food)
+- "Where to Eat After Diving" (Food)
+- "Top Beaches & Viewpoints" (Beaches)
+- "Best Snorkeling Spots for Non-Divers" (Beaches)
+- "Things to Do Besides Diving" (Activities)
+- "Koh Tao Nightlife Guide" (Nightlife)
 
-### 3. Sail Rock Detail Modal
-Add Sail Rock entry to `CourseDetailDialog.tsx` (or create a separate dialog) with full content:
-- The Chimney, Whale Shark Hotspot, Cloud of Fish highlights
-- Trip details: departs every 3 days at 07:30, returns 16:30, 3 dives, meals included
-- Requirements: OW cert (18m), AOW for full 40m
-- Price: 3,800 THB
+### 2. `src/components/BlogCard.tsx`
+Reusable card with cover image, category badge, title, excerpt, and "Read More" link. Uses existing Card component and Badge.
 
-### 4. Update All Course Detail Content
-Update `CourseDetailDialog.tsx` with the new optimized copy:
+### 3. `src/components/BlogPreview.tsx`
+Homepage section showing 3 featured posts in a grid with "Explore Koh Tao Guide" heading and "View All" link to `/blog`. Placed above Footer in Index.tsx.
 
-**DSD**: New header "Your First Breath Underwater: One-Day Experience", updated schedule (10:30, 12:30 boat departure instead of 11:30, 16:00 return), updated included text, same price.
+### 4. `src/pages/BlogPage.tsx`
+Listing page at `/blog` with category filter chips and grid of BlogCards. Includes Navbar and Footer.
 
-**Open Water**: New header "Get Your Lifetime Certification", updated itinerary text (adds "graduation party" on Day 3), new "Small Groups: Max 6 students" perk, updated included description.
+### 5. `src/pages/BlogPostPage.tsx`
+Individual article page at `/blog/:slug`. Hero image, title, category badge, rich content sections, and a "Book a Dive" CTA banner linking to WhatsApp.
 
-**Advanced Open Water**: New header "Explore Further: Depth & Adventure", slightly updated dive descriptions, same perks and price.
+## Files to Modify
 
-**Rescue Diver**: New header "Serious Fun: Become a Hero Underwater", updated skills list, **price changed from 10,000 to 12,000 THB**, **EFR add-on changed from 4,500 to 4,000 THB**.
+### 6. `src/App.tsx`
+Add routes: `/blog` and `/blog/:slug`.
 
-### 5. Update Course Card Price (CoursesSection.tsx)
-Update Rescue Diver price from "10,000" to "12,000" in the courses array.
+### 7. `src/components/Navbar.tsx`
+Add "Koh Tao Guide" as a nav link that uses React Router `Link` to navigate to `/blog` (instead of smooth scroll). Needs to handle both hash links and route links.
 
-### 6. Wire Up Index Page
-Add `SailRockBanner` to `Index.tsx` between CoursesSection and FunDivingSection.
+### 8. `src/pages/Index.tsx`
+Add `BlogPreview` component above `BookingCTA`.
 
-## Files to Create/Modify
-- **Create**: `src/components/SailRockBanner.tsx`
-- **Modify**: `src/components/CourseDetailDialog.tsx` (update all course content + add Sail Rock)
-- **Modify**: `src/components/CoursesSection.tsx` (update Rescue Diver price)
-- **Modify**: `src/components/FunDivingSection.tsx` (add Sail Rock highlight card with More Details)
-- **Modify**: `src/pages/Index.tsx` (add SailRockBanner)
+## Design Notes
+- Match existing ocean/coral color palette and font system (Playfair Display headings, DM Sans body)
+- Use framer-motion for scroll animations consistent with other sections
+- Each blog post includes a subtle "Book a Dive with Siam Scuba" CTA to convert readers into customers
+- Category filter uses the accent/primary colors from the existing theme
 
