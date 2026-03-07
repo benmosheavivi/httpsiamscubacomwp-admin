@@ -5,6 +5,7 @@ import SailRockBanner from "@/components/SailRockBanner";
 import FunDivingSection from "@/components/FunDivingSection";
 import BoatsSection from "@/components/BoatsSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import BlogPreview from "@/components/BlogPreview";
 import BookingCTA from "@/components/BookingCTA";
 import Footer from "@/components/Footer";
 import FloatingInstagram from "@/components/FloatingInstagram";
