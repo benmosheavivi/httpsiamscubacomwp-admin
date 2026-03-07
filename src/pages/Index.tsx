@@ -8,6 +8,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import BookingCTA from "@/components/BookingCTA";
 import Footer from "@/components/Footer";
 import FloatingInstagram from "@/components/FloatingInstagram";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <BookingCTA />
       <Footer />
       <FloatingInstagram />
+      <FloatingWhatsApp />
     </div>
   );
 };
