@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft, MessageCircle, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -93,6 +93,17 @@ const BlogPostPage = () => {
                     {p}
                   </p>
                 ))}
+                {section.mapLink && (
+                  <a
+                    href={section.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+                  >
+                    <MapPin className="h-4 w-4" />
+                    View on Google Maps
+                  </a>
+                )}
                 {section.image && (
                   <img
                     src={section.image}
