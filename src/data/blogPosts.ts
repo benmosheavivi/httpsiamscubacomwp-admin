@@ -78,10 +78,10 @@ export const blogPosts: BlogPost[] = [
         mapLink: "https://maps.app.goo.gl/C1zqGfUyxWhU2Ckz9?g_st=ic",
       },
       {
-        heading: "Best Smoothie on the Island",
+        heading: "Best Samosa on the Island",
         paragraphs: [
-          "Thick, fresh, and bursting with tropical fruit — this place serves the best smoothie on Koh Tao. Made with real fruit, no added sugar, and blended to perfection.",
-          "Whether you go for mango, passion fruit, or a mixed tropical blend — every sip tastes like paradise. The perfect way to cool down after a day of diving or exploring.",
+          "Crispy on the outside, perfectly spiced on the inside — this place serves the best samosa on Koh Tao. Stuffed with a fragrant mix of potatoes, peas, and aromatic spices, each bite is pure comfort.",
+          "Whether you grab one as a quick snack or order a plate to share, these samosas are addictive. Pair them with a tangy chutney and you're in heaven. A must-try street food gem on the island.",
         ],
         mapLink: "https://maps.app.goo.gl/XZN9bSzHdYYNXrDa8?g_st=ic",
       },
