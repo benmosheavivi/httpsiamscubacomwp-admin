@@ -50,15 +50,25 @@ const Navbar = () => {
         <div className="flex items-center justify-between w-full py-2">
           {/* Desktop left links */}
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.slice(0, 2).map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNav(link.href)}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.slice(0, 2).map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  key={link.href}
+                  onClick={() => handleNav(link.href)}
+                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </button>
+              )
+            )}
           </div>
 
           {/* Mobile hamburger (left side) */}
