@@ -24,8 +24,18 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const location = useLocation();
+
   const handleNav = (href: string) => {
     setMobileOpen(false);
+    if (href.startsWith("/")) {
+      // Route link — handled by Link component
+      return;
+    }
+    if (location.pathname !== "/") {
+      window.location.href = "/" + href;
+      return;
+    }
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
