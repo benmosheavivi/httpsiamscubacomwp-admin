@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/siam-logo.png";
 
@@ -9,6 +10,7 @@ const navLinks = [
   { label: "Courses", href: "#courses" },
   { label: "Fun Diving", href: "#fun-diving" },
   { label: "The Boats", href: "#boats" },
+  { label: "Koh Tao Guide", href: "/blog" },
   { label: "About Us", href: "#about" },
 ];
 
@@ -22,8 +24,18 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const location = useLocation();
+
   const handleNav = (href: string) => {
     setMobileOpen(false);
+    if (href.startsWith("/")) {
+      // Route link — handled by Link component
+      return;
+    }
+    if (location.pathname !== "/") {
+      window.location.href = "/" + href;
+      return;
+    }
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -38,15 +50,25 @@ const Navbar = () => {
         <div className="flex items-center justify-between w-full py-2">
           {/* Desktop left links */}
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.slice(0, 2).map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNav(link.href)}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.slice(0, 2).map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  key={link.href}
+                  onClick={() => handleNav(link.href)}
+                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </button>
+              )
+            )}
           </div>
 
           {/* Mobile hamburger (left side) */}
@@ -61,15 +83,25 @@ const Navbar = () => {
 
           {/* Desktop right links */}
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.slice(2).map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNav(link.href)}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.slice(2).map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  key={link.href}
+                  onClick={() => handleNav(link.href)}
+                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </button>
+              )
+            )}
             <Button asChild size="sm" className="rounded-full px-6 bg-accent hover:bg-accent/90 text-accent-foreground">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Now</a>
             </Button>
@@ -84,15 +116,26 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden glass border-t border-border">
           <div className="container mx-auto py-4 px-4 flex flex-col gap-3">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNav(link.href)}
-                className="text-left py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-left py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  key={link.href}
+                  onClick={() => handleNav(link.href)}
+                  className="text-left py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </button>
+              )
+            )}
             <Button asChild className="rounded-full bg-accent hover:bg-accent/90 text-accent-foreground mt-2">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Now</a>
             </Button>
