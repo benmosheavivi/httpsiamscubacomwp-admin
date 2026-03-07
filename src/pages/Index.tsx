@@ -23,6 +23,7 @@ const Index = () => {
       <BookingCTA />
       <Footer />
       <FloatingInstagram />
+      <FloatingWhatsApp />
     </div>
   );
 };
