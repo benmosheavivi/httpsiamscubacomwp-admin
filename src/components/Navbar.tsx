@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/siam-logo.png";
 
@@ -9,6 +10,7 @@ const navLinks = [
   { label: "Courses", href: "#courses" },
   { label: "Fun Diving", href: "#fun-diving" },
   { label: "The Boats", href: "#boats" },
+  { label: "Koh Tao Guide", href: "/blog" },
   { label: "About Us", href: "#about" },
 ];
 
