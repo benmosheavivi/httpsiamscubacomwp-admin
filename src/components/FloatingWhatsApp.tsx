@@ -12,11 +12,8 @@ const FloatingWhatsApp = () => {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      style={{ y }}
-      className="fixed right-4 bottom-4 z-40 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-colors"
-      style={{ backgroundColor: '#25D366' }}
-      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#20BA5F'}
-      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#25D366'}
+      style={{ y, backgroundColor: '#25D366' }}
+      className="fixed right-4 bottom-4 z-40 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-colors hover:opacity-90"
       aria-label="Chat with us on WhatsApp"
     >
       <MessageCircle className="h-6 w-6 text-white" />
