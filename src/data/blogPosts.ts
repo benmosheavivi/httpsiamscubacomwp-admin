@@ -1,0 +1,269 @@
+export interface BlogSection {
+  heading?: string;
+  paragraphs: string[];
+  image?: string;
+}
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  category: "Food" | "Beaches" | "Activities" | "Nightlife";
+  excerpt: string;
+  coverImage: string;
+  date: string;
+  sections: BlogSection[];
+}
+
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "best-restaurants-koh-tao",
+    title: "Best Restaurants on Koh Tao",
+    category: "Food",
+    excerpt: "From beachfront Thai cuisine to international fusion — our hand-picked guide to the best places to eat on the island.",
+    coverImage: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
+    date: "2026-02-15",
+    sections: [
+      {
+        heading: "Barracuda Restaurant & Bar",
+        paragraphs: [
+          "Perched on the rocks overlooking the Gulf of Thailand, Barracuda is Koh Tao's go-to spot for a special evening out. Their seafood platters and cocktails are legendary among both locals and visitors.",
+          "Try the grilled barracuda (naturally) or their signature pad thai with fresh prawns. Sunsets from the terrace are unforgettable.",
+        ],
+      },
+      {
+        heading: "The Gallery Restaurant",
+        paragraphs: [
+          "A hidden gem tucked away in Sairee Village, The Gallery serves creative Thai-Western fusion dishes in a beautifully decorated open-air setting.",
+          "The massaman curry is a must, and their homemade desserts are worth saving room for. Prices are mid-range and the portions are generous.",
+        ],
+      },
+      {
+        heading: "Mama's Kitchen",
+        paragraphs: [
+          "For authentic, no-frills Thai food at local prices, Mama's Kitchen on the main road is where the dive instructors eat. Huge portions of pad kra pao, green curry, and the best som tam on the island.",
+          "Expect to pay 60–120 THB per dish. Cash only. Open for lunch and dinner.",
+        ],
+      },
+      {
+        heading: "Zanzibar",
+        paragraphs: [
+          "Right on Sairee Beach, Zanzibar combines a relaxed beach bar vibe with surprisingly excellent food. Their burgers, wood-fired pizzas, and fresh fruit shakes are perfect for a lazy afternoon.",
+          "They host regular fire shows and live music in the evenings — making it a great spot to transition from dinner to nightlife.",
+        ],
+      },
+      {
+        heading: "Su Chili",
+        paragraphs: [
+          "A favourite among long-term residents, Su Chili offers incredible southern Thai cuisine with bold, spicy flavours. The yellow curry with crab and their crispy fish salad are standout dishes.",
+          "Located near Mae Haad pier, it's a perfect first or last meal on the island.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "where-to-eat-after-diving",
+    title: "Where to Eat After Diving",
+    category: "Food",
+    excerpt: "You just surfaced from an epic dive — here's where to refuel with the best post-dive meals near the pier.",
+    coverImage: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+    date: "2026-02-20",
+    sections: [
+      {
+        heading: "Refuel Right After the Boat",
+        paragraphs: [
+          "After a morning of diving, you'll step off the boat around 12:30–13:00 at Mae Haad or Sairee pier. Your body is craving calories, hydration, and probably something cold.",
+          "Here are our top picks for satisfying that post-dive hunger within walking distance of the piers.",
+        ],
+      },
+      {
+        heading: "Café del Sol",
+        paragraphs: [
+          "Just a two-minute walk from Sairee pier, Café del Sol serves massive smoothie bowls, fresh juices, and hearty brunch plates. Their avocado toast with a poached egg is the perfect recovery meal.",
+          "They also have strong espresso — essential after an early morning boat departure.",
+        ],
+      },
+      {
+        heading: "Pranee's Kitchen",
+        paragraphs: [
+          "A tiny roadside spot near Mae Haad pier serving the most comforting Thai dishes. The khao pad (fried rice) and tom yum soup will warm you up after a chilly deep dive.",
+          "Meals are 70–100 THB and ready in minutes. No website, no Instagram — just great food.",
+        ],
+      },
+      {
+        heading: "Big Blue Diving Restaurant",
+        paragraphs: [
+          "Even if you didn't dive with Big Blue, their restaurant is open to everyone and overlooks the beach. Great Western and Thai menu with generous portions.",
+          "The fish and chips are surprisingly good, and the mango sticky rice is the real deal.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "top-beaches-viewpoints-koh-tao",
+    title: "Top Beaches & Viewpoints on Koh Tao",
+    category: "Beaches",
+    excerpt: "Crystal-clear bays, dramatic cliff viewpoints, and hidden coves — discover Koh Tao's most beautiful spots above water.",
+    coverImage: "https://images.unsplash.com/photo-1537956965359-7573183d1f57?w=800&q=80",
+    date: "2026-03-01",
+    sections: [
+      {
+        heading: "Tanote Bay",
+        paragraphs: [
+          "On the east coast of the island, Tanote Bay is a gorgeous crescent of sand flanked by giant boulders. The snorkeling right off the beach is excellent — you'll spot parrotfish, triggerfish, and sometimes small reef sharks.",
+          "There's a famous cliff-jumping rock on the south side. The jump is about 8 metres — not for the faint-hearted but absolutely thrilling.",
+        ],
+      },
+      {
+        heading: "Freedom Beach",
+        paragraphs: [
+          "A small, secluded beach on the southwest coast accessible by a short jungle trail or longtail boat. It's rarely crowded and feels like your own private paradise.",
+          "Bring snorkel gear — the reef just offshore is teeming with colourful fish and healthy coral.",
+        ],
+      },
+      {
+        heading: "John Suwan Viewpoint",
+        paragraphs: [
+          "A 20-minute hike from Chalok Baan Kao bay leads you to one of the most spectacular viewpoints in all of Thailand. From the top, you can see Shark Bay to the left and Chalok Bay to the right.",
+          "Go early morning or late afternoon to avoid the midday heat. Bring water and wear proper shoes — the last section is a scramble over rocks.",
+        ],
+      },
+      {
+        heading: "Sairee Beach",
+        paragraphs: [
+          "The longest beach on Koh Tao stretches nearly 2 kilometres along the west coast. It's the social hub of the island — lined with bars, restaurants, and dive shops.",
+          "The sunsets here are legendary. Grab a drink at one of the beach bars and watch the sky turn every shade of orange and pink.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "best-snorkeling-spots-non-divers",
+    title: "Best Snorkeling Spots for Non-Divers",
+    category: "Beaches",
+    excerpt: "Don't have a dive cert? No problem — Koh Tao has world-class snorkeling right from the beach.",
+    coverImage: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
+    date: "2026-03-03",
+    sections: [
+      {
+        heading: "Japanese Gardens",
+        paragraphs: [
+          "Located between Koh Tao and Koh Nang Yuan, Japanese Gardens is arguably the best snorkeling site in the Gulf of Thailand. The shallow reef (1–5 metres) is covered in beautiful hard and soft corals.",
+          "You'll see clownfish, angelfish, pufferfish, and if you're lucky, a sea turtle cruising by. Accessible by longtail boat from Mae Haad (about 200 THB round trip).",
+        ],
+      },
+      {
+        heading: "Shark Bay (Thian Og Bay)",
+        paragraphs: [
+          "Despite the name, the sharks here are harmless blacktip reef sharks — usually juveniles about 1 metre long. They patrol the shallow sandy areas and are incredible to watch from the surface.",
+          "The bay is accessible by a trail from the south of the island. There's a small entrance fee (100 THB) at the viewpoint resort above.",
+        ],
+      },
+      {
+        heading: "Mango Bay",
+        paragraphs: [
+          "On the north coast, Mango Bay offers excellent snorkeling over a rocky reef with great visibility. It's a favourite stop on snorkeling day trips.",
+          "The coral is in great condition and you'll spot groupers, moray eels, and schools of fusiliers. Best visited on a calm day.",
+        ],
+      },
+      {
+        heading: "Aow Leuk",
+        paragraphs: [
+          "A beautiful east-coast bay with a gently sloping sandy bottom and healthy reef on both sides. It's one of the most beginner-friendly snorkeling spots.",
+          "There's a small beach bar where you can rent gear and grab a cold drink between swims. Entry fee is usually 50 THB or free if you buy food/drinks.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "things-to-do-besides-diving",
+    title: "Things to Do on Koh Tao Besides Diving",
+    category: "Activities",
+    excerpt: "Rock climbing, jungle hikes, Muay Thai, cooking classes — Koh Tao has way more than just diving.",
+    coverImage: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    date: "2026-02-28",
+    sections: [
+      {
+        heading: "Rock Climbing",
+        paragraphs: [
+          "Koh Tao's granite boulders make it one of the best rock climbing destinations in Southeast Asia. Goodtime Adventures offers half-day and full-day climbing sessions for all levels.",
+          "Routes range from beginner-friendly slabs to challenging overhangs. The views from the top of the boulders are spectacular — you can see across the entire island.",
+        ],
+      },
+      {
+        heading: "Muay Thai Training",
+        paragraphs: [
+          "Several gyms on the island offer drop-in Muay Thai classes for beginners and experienced fighters. Monsoon Gym and Island Muay Thai are the most popular.",
+          "A single class costs around 400–500 THB. It's an incredible workout and a great way to experience authentic Thai culture.",
+        ],
+      },
+      {
+        heading: "Jungle Hiking",
+        paragraphs: [
+          "Rent a scooter and explore the island's interior trails. The road to Mango Bay viewpoint is an adventure in itself — steep, winding, and surrounded by jungle.",
+          "For a proper hike, the trail from Chalok to Tanote Bay crosses the spine of the island with panoramic views. Allow 2–3 hours and bring plenty of water.",
+        ],
+      },
+      {
+        heading: "Thai Cooking Classes",
+        paragraphs: [
+          "Learn to make authentic pad thai, green curry, and mango sticky rice in a hands-on cooking class. Several places on Sairee road offer half-day sessions.",
+          "You'll visit the local market to buy fresh ingredients, then cook 3–4 dishes that you get to eat. Classes run about 1,500 THB including all ingredients.",
+        ],
+      },
+      {
+        heading: "Yoga & Wellness",
+        paragraphs: [
+          "Koh Tao has a thriving yoga scene. Blue Aura Yoga and Shambhala offer daily classes in stunning open-air studios overlooking the ocean.",
+          "Drop-in classes are around 300–400 THB. Many places also offer multi-day retreats combining yoga, meditation, and healthy eating.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "koh-tao-nightlife-guide",
+    title: "Koh Tao Nightlife Guide",
+    category: "Nightlife",
+    excerpt: "Beach parties, fire shows, reggae bars, and pool parties — here's how to make the most of Koh Tao after dark.",
+    coverImage: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80",
+    date: "2026-03-05",
+    sections: [
+      {
+        heading: "Sairee Beach Bar Scene",
+        paragraphs: [
+          "The main strip of Sairee Beach comes alive after sunset. Most bars offer happy hour from 17:00–19:00 with buy-one-get-one cocktails and cheap beer buckets.",
+          "Fizz, Choppers, and MAYA Beach Club are the go-to spots for beachfront drinks with your feet in the sand.",
+        ],
+      },
+      {
+        heading: "Fire Shows",
+        paragraphs: [
+          "Almost every night, one of the beach bars hosts a free fire show. Talented performers spin flaming poi, jump through fire hoops, and breathe fire — all on the beach.",
+          "The shows usually start around 21:00–22:00. Lotus Bar and Fizz are known for the most impressive performances.",
+        ],
+      },
+      {
+        heading: "Pool Parties",
+        paragraphs: [
+          "Several resorts host weekly pool parties with DJs, cocktails, and a festive atmosphere. Koh Tao Cabana and The Castle are the most popular.",
+          "These usually kick off in the afternoon and run until late. Entry is free — you just pay for drinks.",
+        ],
+      },
+      {
+        heading: "Reggae & Chill Vibes",
+        paragraphs: [
+          "If you prefer a more laid-back evening, head to one of the reggae bars on the south end of Sairee. Live music, hammocks, and cold Chang beers.",
+          "Castle Bar and Diza Bar are great for meeting other travellers in a relaxed setting. No cover charge, no pretension — just good vibes.",
+        ],
+      },
+      {
+        heading: "Late Night",
+        paragraphs: [
+          "The party usually migrates to Fishbowl and Saithong later in the evening — they stay open until 02:00 or later. These are the main 'club' venues on the island.",
+          "Wednesday and Saturday tend to be the biggest nights. Watch out for the famous Koh Tao pub crawl — it's a wild ride.",
+        ],
+      },
+    ],
+  },
+];
+
+export const blogCategories = ["All", "Food", "Beaches", "Activities", "Nightlife"] as const;
