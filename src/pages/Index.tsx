@@ -21,6 +21,7 @@ const Index = () => {
       <FunDivingSection />
       <BoatsSection />
       <WhyChooseUs />
+      <BlogPreview />
       <BookingCTA />
       <Footer />
       <FloatingInstagram />

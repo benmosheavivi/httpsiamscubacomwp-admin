@@ -116,15 +116,26 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden glass border-t border-border">
           <div className="container mx-auto py-4 px-4 flex flex-col gap-3">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNav(link.href)}
-                className="text-left py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-left py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  key={link.href}
+                  onClick={() => handleNav(link.href)}
+                  className="text-left py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </button>
+              )
+            )}
             <Button asChild className="rounded-full bg-accent hover:bg-accent/90 text-accent-foreground mt-2">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Now</a>
             </Button>
