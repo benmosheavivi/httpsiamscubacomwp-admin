@@ -24,38 +24,38 @@ export const blogPosts: BlogPost[] = [
     date: "2026-02-15",
     sections: [
       {
-        heading: "Barracuda Restaurant & Bar",
+        heading: "Thaita — Italian Restaurant",
         paragraphs: [
-          "Perched on the rocks overlooking the Gulf of Thailand, Barracuda is Koh Tao's go-to spot for a special evening out. Their seafood platters and cocktails are legendary among both locals and visitors.",
-          "Try the grilled barracuda (naturally) or their signature pad thai with fresh prawns. Sunsets from the terrace are unforgettable.",
+          "Craving authentic Italian on a tropical island? Thaita delivers with wood-fired pizzas, handmade pastas, and a wine list that rivals restaurants back in Europe. The setting is intimate and romantic — perfect for a date night.",
+          "Their truffle pasta and margherita pizza are crowd favourites. Prices are higher than Thai food but absolutely worth it for the quality. Expect to spend around 300–500 THB per dish.",
         ],
       },
       {
-        heading: "The Gallery Restaurant",
+        heading: "Café del Sol",
         paragraphs: [
-          "A hidden gem tucked away in Sairee Village, The Gallery serves creative Thai-Western fusion dishes in a beautifully decorated open-air setting.",
-          "The massaman curry is a must, and their homemade desserts are worth saving room for. Prices are mid-range and the portions are generous.",
+          "A beloved Koh Tao institution, Café del Sol serves excellent brunch, fresh juices, and hearty meals that keep divers and travellers coming back every day. The vibe is relaxed and welcoming.",
+          "Their smoothie bowls, avocado toast, and strong espresso are the perfect way to start or end a day on the island. Great for a leisurely breakfast or a post-dive refuel.",
         ],
       },
       {
-        heading: "Mama's Kitchen",
+        heading: "Blue Chair",
         paragraphs: [
-          "For authentic, no-frills Thai food at local prices, Mama's Kitchen on the main road is where the dive instructors eat. Huge portions of pad kra pao, green curry, and the best som tam on the island.",
-          "Expect to pay 60–120 THB per dish. Cash only. Open for lunch and dinner.",
+          "Blue Chair is one of those places you stumble upon and instantly fall in love with. Cozy atmosphere, friendly staff, and a menu that blends Thai and international flavours beautifully.",
+          "Whether you're after a fresh seafood dish, a perfectly grilled steak, or a creative cocktail — Blue Chair delivers every time. A must-visit on any Koh Tao trip.",
         ],
       },
       {
-        heading: "Zanzibar",
+        heading: "Best Khao Soi on Koh Tao",
         paragraphs: [
-          "Right on Sairee Beach, Zanzibar combines a relaxed beach bar vibe with surprisingly excellent food. Their burgers, wood-fired pizzas, and fresh fruit shakes are perfect for a lazy afternoon.",
-          "They host regular fire shows and live music in the evenings — making it a great spot to transition from dinner to nightlife.",
+          "If you're a fan of northern Thai cuisine, this spot serves the best khao soi on the island — rich, coconut-based curry broth with egg noodles, tender chicken, and crispy noodle topping.",
+          "It's a simple, no-frills place where the food speaks for itself. Budget-friendly at around 80–150 THB per bowl. A hidden gem that the locals love.",
         ],
       },
       {
-        heading: "Su Chili",
+        heading: "Best Burger at the Viewpoint",
         paragraphs: [
-          "A favourite among long-term residents, Su Chili offers incredible southern Thai cuisine with bold, spicy flavours. The yellow curry with crab and their crispy fish salad are standout dishes.",
-          "Located near Mae Haad pier, it's a perfect first or last meal on the island.",
+          "Imagine biting into a juicy cheeseburger while overlooking one of the most stunning panoramic views on Koh Tao. This hilltop spot serves the best hamburgers and cheeseburgers on the island.",
+          "The combination of amazing food and a breathtaking viewpoint makes this a truly unique dining experience. Worth the ride up the hill — make sure to go before sunset for the full experience.",
         ],
       },
     ],
