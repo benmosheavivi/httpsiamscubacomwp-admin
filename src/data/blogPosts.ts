@@ -2,6 +2,7 @@ export interface BlogSection {
   heading?: string;
   paragraphs: string[];
   image?: string;
+  mapLink?: string;
 }
 
 export interface BlogPost {
