@@ -41,7 +41,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-accent font-serif font-bold">From your first breath underwater to professional-level training we've got every step covered.
+          className="mt-16 text-lg md:text-xl max-w-2xl mx-auto text-accent font-serif font-bold">From your first breath underwater to professional-level training we've got every step covered.
 
 
         </motion.p>
