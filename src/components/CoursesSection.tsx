@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck, Info } from "lucide-react";
+import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck, Info, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { GlowCard } from "@/components/ui/spotlight-card";
@@ -13,46 +13,62 @@ const categories = [
 {
   label: "Basic Courses",
   description: "Perfect for beginners — take your first breath underwater or earn your first certification.",
-  courses: [
-  {
-    icon: Fish,
-    title: "Discover Scuba Diving",
-    price: "2,600",
-    duration: "1 day",
-    highlights: ["No experience needed", "Pool + ocean dive", "PADI certified instructor"],
-    hasDetails: true
-  },
-  {
-    icon: BookOpen,
-    title: "Open Water Diver",
-    price: "11,000",
-    duration: "3–4 days",
-    highlights: ["Dive to 18m worldwide", "Lifetime certification", "4 open water dives"],
-    featured: true,
-    hasDetails: true
-  }]
+   courses: [
+   {
+     icon: Fish,
+     title: "Discover Scuba Diving",
+     price: "2,600",
+     duration: "1 day",
+     highlights: ["No experience needed", "Pool + ocean dive", "PADI certified instructor"],
+     hasDetails: true
+   },
+   {
+     icon: BookOpen,
+     title: "Open Water Diver",
+     price: "11,000",
+     duration: "3–4 days",
+     highlights: ["Dive to 18m worldwide", "Lifetime certification", "4 open water dives"],
+     featured: true,
+     hasDetails: true
+   },
+   {
+     icon: Fish,
+     title: "Bubble Maker",
+     price: "3,800",
+     duration: "1 day",
+     highlights: ["For children in pool", "Fun introduction", "Safe & supervised"],
+     hasDetails: true
+   }]
 
 },
 {
   label: "Advanced Courses",
   description: "Push your limits and explore deeper, further, and with more confidence.",
-  courses: [
-  {
-    icon: Star,
-    title: "Advanced Open Water",
-    price: "10,000",
-    duration: "2 days",
-    highlights: ["Dive to 30m", "5 adventure dives", "Deep & navigation skills"],
-    hasDetails: true
-  },
-  {
-    icon: ShieldCheck,
-    title: "Rescue Diver",
-    price: "12,000",
-    duration: "3–4 days",
-    highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
-    hasDetails: true
-  }]
+   courses: [
+   {
+     icon: Star,
+     title: "Advanced Open Water",
+     price: "10,000",
+     duration: "2 days",
+     highlights: ["Dive to 30m", "5 adventure dives", "Deep & navigation skills"],
+     hasDetails: true
+   },
+   {
+     icon: ShieldCheck,
+     title: "Rescue Diver",
+     price: "12,000",
+     duration: "3–4 days",
+     highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
+     hasDetails: true
+   },
+   {
+     icon: Heart,
+     title: "Emergency First Response (EFR)",
+     price: "4,500",
+     duration: "1 day",
+     highlights: ["CPR & first aid", "Internationally certified", "Life-saving skills"],
+     hasDetails: true
+   }]
 
 },
 {
@@ -62,7 +78,7 @@ const categories = [
   {
     icon: Crown,
     title: "Divemaster",
-    price: "38,000",
+    price: "38,500",
     duration: "4–8 weeks",
     highlights: ["Lead certified divers", "Career in diving", "Internship included"]
   },
