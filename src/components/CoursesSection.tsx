@@ -51,16 +51,17 @@ const categories = [
      price: "10,000",
      duration: "2 days",
      highlights: ["Dive to 30m", "5 adventure dives", "Deep & navigation skills"],
+     featured: true,
      hasDetails: true
    },
-   {
-     icon: ShieldCheck,
-     title: "Rescue Diver",
-     price: "12,000",
-     duration: "3–4 days",
-     highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
-     hasDetails: true
-   },
+    {
+      icon: ShieldCheck,
+      title: "Rescue Diver",
+      price: "12,000",
+      duration: "3–4 days",
+      highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
+      hasDetails: true
+    },
    {
      icon: Heart,
      title: "Emergency First Response (EFR)",
@@ -75,20 +76,21 @@ const categories = [
   label: "Professional Level",
   description: "Turn your passion into a career with professional-level PADI training.",
   courses: [
-  {
-    icon: Crown,
-    title: "Divemaster",
-    price: "38,500",
-    duration: "4–8 weeks",
-    highlights: ["Lead certified divers", "Career in diving", "Internship included"]
-  },
-  {
-    icon: Award,
-    title: "IDC (Instructor Course)",
-    price: null,
-    duration: "Varies",
-    highlights: ["Become a PADI Instructor", "Full instructor training", "Teaching certifications"]
-  }]
+   {
+     icon: Crown,
+     title: "Divemaster",
+     price: "38,500",
+     duration: "4–8 weeks",
+     highlights: ["Lead certified divers", "Career in diving", "Free internship"],
+     featured: true
+   },
+   {
+     icon: Award,
+     title: "IDC (Instructor Course)",
+     price: null,
+     duration: "Varies",
+     highlights: ["Become a PADI Instructor", "Full instructor training", "Free internship"]
+   }]
 
 },
 {
