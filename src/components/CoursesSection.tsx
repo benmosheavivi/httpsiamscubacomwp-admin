@@ -76,13 +76,14 @@ const categories = [
   label: "Professional Level",
   description: "Turn your passion into a career with professional-level PADI training.",
   courses: [
-  {
-    icon: Crown,
-    title: "Divemaster",
-    price: "38,500",
-    duration: "4–8 weeks",
-    highlights: ["Lead certified divers", "Career in diving", "Internship included"]
-  },
+   {
+     icon: Crown,
+     title: "Divemaster",
+     price: "38,500",
+     duration: "4–8 weeks",
+     highlights: ["Lead certified divers", "Career in diving", "Free internship"],
+     featured: true
+   },
   {
     icon: Award,
     title: "IDC (Instructor Course)",
