@@ -54,14 +54,14 @@ const categories = [
      featured: true,
      hasDetails: true
    },
-   {
-     icon: ShieldCheck,
-     title: "Rescue Diver",
-     price: "12,000",
-     duration: "3–4 days",
-     highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
-     hasDetails: true
-   },
+    {
+      icon: ShieldCheck,
+      title: "Rescue Diver",
+      price: "12,000",
+      duration: "3–4 days",
+      highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
+      hasDetails: true
+    },
    {
      icon: Heart,
      title: "Emergency First Response (EFR)",
