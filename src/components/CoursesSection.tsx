@@ -6,261 +6,228 @@ import { Button } from "@/components/ui/button";
 import { GlowCard } from "@/components/ui/spotlight-card";
 import padi from "@/assets/padi-logo.png";
 import CourseDetailDialog from "./CourseDetailDialog";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'm%20interested%20in%20";
 
-const categories = [
-{
-  label: "Basic Courses",
-  description: "Perfect for beginners — take your first breath underwater or earn your first certification.",
-   courses: [
-   {
-     icon: Fish,
-     title: "Discover Scuba Diving",
-     price: "2,600",
-     duration: "1 day",
-     highlights: ["No experience needed", "Pool + ocean dive", "PADI certified instructor"],
-     hasDetails: true
-   },
-   {
-     icon: BookOpen,
-     title: "Open Water Diver",
-     price: "11,000",
-     duration: "3–4 days",
-     highlights: ["Dive to 18m worldwide", "Lifetime certification", "4 open water dives"],
-     featured: true,
-     hasDetails: true
-   },
-   {
-     icon: Fish,
-     title: "Bubble Maker",
-     price: "3,800",
-     duration: "1 day",
-     highlights: ["For children in pool", "Fun introduction", "Safe & supervised"],
-     hasDetails: true
-   }]
-
-},
-{
-  label: "Advanced Courses",
-  description: "Push your limits and explore deeper, further, and with more confidence.",
-   courses: [
-   {
-     icon: Star,
-     title: "Advanced Open Water",
-     price: "10,000",
-     duration: "2 days",
-     highlights: ["Dive to 30m", "5 adventure dives", "Deep & navigation skills"],
-     featured: true,
-     hasDetails: true
-   },
-    {
-      icon: ShieldCheck,
-      title: "Rescue Diver",
-      price: "12,000",
-      duration: "3–4 days",
-      highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
-      hasDetails: true
-    },
-   {
-     icon: Heart,
-     title: "Emergency First Response (EFR)",
-     price: "4,500",
-     duration: "1 day",
-     highlights: ["CPR & first aid", "Internationally certified", "Life-saving skills"],
-     hasDetails: true
-   }]
-
-},
-{
-  label: "Professional Level",
-  description: "Turn your passion into a career with professional-level PADI training.",
-  courses: [
-   {
-     icon: Crown,
-     title: "Divemaster",
-     price: "38,500",
-     duration: "4–8 weeks",
-     highlights: ["Lead certified divers", "Career in diving", "Free internship"],
-     featured: true
-   },
-   {
-     icon: Award,
-     title: "IDC (Instructor Course)",
-     price: null,
-     duration: "Varies",
-     highlights: ["Become a PADI Instructor", "Full instructor training", "Free internship"]
-   }]
-
-},
-{
-  label: "Specialty Courses",
-  description: "Master specific skills and unlock new diving adventures.",
-  courses: [
-  {
-    icon: Anchor,
-    title: "Wreck Diving",
-    price: "8,500",
-    duration: "2 days",
-    highlights: ["Explore sunken wrecks", "Penetration techniques", "PADI specialty cert"]
-  },
-  {
-    icon: ArrowDown,
-    title: "Deep Diving",
-    price: "8,500",
-    duration: "2 days",
-    highlights: ["Dive beyond 18m", "Gas management", "Deep dive planning"]
-  },
-  {
-    icon: Zap,
-    title: "Underwater Scooter (DPV)",
-    price: null,
-    duration: "1 day",
-    highlights: ["Ride a DPV underwater", "Cover more ground", "Unique experience"]
-  },
-  {
-    icon: Layers,
-    title: "Sidemount Diving",
-    price: null,
-    duration: "2–3 days",
-    highlights: ["Improved streamlining", "Independent gas supply", "Advanced configuration"]
-  }]
-
-}];
-
-
 const CoursesSection = () => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const { t } = useLanguage();
+
+  const categories = [
+    {
+      label: t("courses_basic"),
+      description: t("courses_basic_desc"),
+      courses: [
+        {
+          icon: Fish,
+          title: t("course_dsd"),
+          dialogKey: "Discover Scuba Diving",
+          price: "2,600",
+          duration: t("dur_1_day"),
+          highlights: [t("hl_no_exp"), t("hl_pool_ocean"), t("hl_padi_instructor")],
+          hasDetails: true,
+        },
+        {
+          icon: BookOpen,
+          title: t("course_ow"),
+          dialogKey: "Open Water Diver",
+          price: "11,000",
+          duration: t("dur_3_4_days"),
+          highlights: [t("hl_18m"), t("hl_lifetime"), t("hl_4_dives")],
+          featured: true,
+          hasDetails: true,
+        },
+        {
+          icon: Fish,
+          title: t("course_bubble"),
+          dialogKey: "Bubble Maker",
+          price: "3,800",
+          duration: t("dur_1_day"),
+          highlights: [t("hl_children"), t("hl_fun_intro"), t("hl_safe")],
+          hasDetails: true,
+        },
+      ],
+    },
+    {
+      label: t("courses_advanced"),
+      description: t("courses_advanced_desc"),
+      courses: [
+        {
+          icon: Star,
+          title: t("course_aow"),
+          dialogKey: "Advanced Open Water",
+          price: "10,000",
+          duration: t("dur_2_days"),
+          highlights: [t("hl_30m"), t("hl_5_adventure"), t("hl_deep_nav")],
+          featured: true,
+          hasDetails: true,
+        },
+        {
+          icon: ShieldCheck,
+          title: t("course_rescue"),
+          dialogKey: "Rescue Diver",
+          price: "12,000",
+          duration: t("dur_3_4_days"),
+          highlights: [t("hl_emergency"), t("hl_rescue_tech"), t("hl_stress")],
+          hasDetails: true,
+        },
+        {
+          icon: Heart,
+          title: t("course_efr"),
+          dialogKey: "Emergency First Response (EFR)",
+          price: "4,500",
+          duration: t("dur_1_day"),
+          highlights: [t("hl_cpr"), t("hl_intl_cert"), t("hl_life_saving")],
+          hasDetails: true,
+        },
+      ],
+    },
+    {
+      label: t("courses_pro"),
+      description: t("courses_pro_desc"),
+      courses: [
+        {
+          icon: Crown,
+          title: t("course_dm"),
+          dialogKey: "Divemaster",
+          price: "38,500",
+          duration: t("dur_4_8_weeks"),
+          highlights: [t("hl_lead"), t("hl_career"), t("hl_free_intern")],
+          featured: true,
+        },
+        {
+          icon: Award,
+          title: t("course_idc"),
+          dialogKey: "IDC (Instructor Course)",
+          price: null,
+          duration: t("dur_varies"),
+          highlights: [t("hl_become_instructor"), t("hl_full_training"), t("hl_free_intern")],
+        },
+      ],
+    },
+    {
+      label: t("courses_specialty"),
+      description: t("courses_specialty_desc"),
+      courses: [
+        {
+          icon: Anchor,
+          title: t("course_wreck"),
+          dialogKey: "Wreck Diving",
+          price: "8,500",
+          duration: t("dur_2_days"),
+          highlights: [t("hl_wrecks"), t("hl_penetration"), t("hl_specialty_cert")],
+        },
+        {
+          icon: ArrowDown,
+          title: t("course_deep"),
+          dialogKey: "Deep Diving",
+          price: "8,500",
+          duration: t("dur_2_days"),
+          highlights: [t("hl_beyond_18"), t("hl_gas"), t("hl_deep_plan")],
+        },
+        {
+          icon: Zap,
+          title: t("course_dpv"),
+          dialogKey: "Underwater Scooter (DPV)",
+          price: null,
+          duration: t("dur_1_day"),
+          highlights: [t("hl_dpv"), t("hl_cover_ground"), t("hl_unique")],
+        },
+        {
+          icon: Layers,
+          title: t("course_sidemount"),
+          dialogKey: "Sidemount Diving",
+          price: null,
+          duration: t("dur_2_3_days"),
+          highlights: [t("hl_streamline"), t("hl_independent_gas"), t("hl_advanced_config")],
+        },
+      ],
+    },
+  ];
 
   return (
     <>
-    <section id="courses" className="section-padding bg-background">
-      <div className="container mx-auto">
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16">
-            
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <img src={padi} alt="PADI" className="h-32 w-auto" />
-            <p className="text-primary font-body text-sm uppercase tracking-[0.2em]">PADI Courses</p>
+      <section id="courses" className="section-padding bg-background">
+        <div className="container mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <img src={padi} alt="PADI" className="h-32 w-auto" />
+              <p className="text-primary font-body text-sm uppercase tracking-[0.2em]">{t("courses_label")}</p>
+            </div>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">{t("courses_title")}</h2>
+          </motion.div>
+
+          <div className="space-y-16">
+            {categories.map((cat, catIdx) => (
+              <motion.div key={cat.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: catIdx * 0.1 }}>
+                <div className="mb-6">
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">{cat.label}</h3>
+                  <p className="text-muted-foreground text-sm mt-1">{cat.description}</p>
+                </div>
+
+                <div className={`grid grid-cols-1 sm:grid-cols-2 ${cat.courses.length > 2 ? "lg:grid-cols-4" : cat.courses.length === 1 ? "lg:grid-cols-3" : "lg:grid-cols-2"} gap-6`}>
+                  {cat.courses.map((course, i) => (
+                    <motion.div key={course.dialogKey} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.08 }}>
+                      <GlowCard glowColor="blue" customSize className="h-full !p-0 !gap-0 !grid-rows-[1fr] !shadow-none">
+                        <Card className={`relative overflow-hidden h-full border-0 shadow-none bg-transparent ${course.featured ? "ring-2 ring-primary" : ""}`}>
+                          {course.featured && (
+                            <div className="absolute top-0 right-0 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-bl-lg z-10">
+                              {t("courses_most_popular")}
+                            </div>
+                          )}
+                          <CardContent className="p-6 flex flex-col h-full">
+                            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-ocean-surface text-secondary-foreground">
+                              <course.icon className="h-6 w-6" />
+                            </div>
+                            <h4 className="font-display text-lg font-semibold text-foreground mb-2">{course.title}</h4>
+                            <div className="flex items-baseline gap-1 mb-1">
+                              {course.price ? (
+                                <>
+                                  <span className="text-2xl font-bold text-foreground">฿{course.price}</span>
+                                  <span className="text-sm text-muted-foreground">THB</span>
+                                </>
+                              ) : (
+                                <span className="text-lg font-semibold text-primary">{t("courses_get_price")}</span>
+                              )}
+                            </div>
+                            <p className="text-xs text-muted-foreground mb-4">{course.duration}</p>
+                            <ul className="space-y-2 mb-6 flex-1">
+                              {course.highlights.map((h) => (
+                                <li key={h} className="flex items-start gap-2 text-sm text-foreground/80">
+                                  <Award className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                                  {h}
+                                </li>
+                              ))}
+                            </ul>
+                            <div className="space-y-2">
+                              {course.hasDetails && (
+                                <Button variant="ghost" className="rounded-full w-full text-primary hover:text-primary/80" onClick={() => setSelectedCourse(course.dialogKey)}>
+                                  <Info className="h-4 w-4 mr-1" />
+                                  {t("courses_more_details")}
+                                </Button>
+                              )}
+                              <Button asChild variant={course.featured ? "default" : "outline"} className="rounded-full w-full">
+                                <a href={`${WHATSAPP_URL}${encodeURIComponent(course.dialogKey)}`} target="_blank" rel="noopener noreferrer">
+                                  {course.price ? t("courses_book_now") : t("courses_get_price")}
+                                </a>
+                              </Button>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </GlowCard>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </div>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Start Your Journey
-          </h2>
-          
-
-            
-        </motion.div>
-
-        <div className="space-y-16">
-          {categories.map((cat, catIdx) =>
-            <motion.div
-              key={cat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: catIdx * 0.1 }}>
-              
-              <div className="mb-6">
-                <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">{cat.label}</h3>
-                <p className="text-muted-foreground text-sm mt-1">{cat.description}</p>
-              </div>
-
-              <div className={`grid grid-cols-1 sm:grid-cols-2 ${cat.courses.length > 2 ? "lg:grid-cols-4" : cat.courses.length === 1 ? "lg:grid-cols-3" : "lg:grid-cols-2"} gap-6`}>
-                {cat.courses.map((course, i) =>
-                <motion.div
-                  key={course.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.08 }}>
-                  
-                    <GlowCard
-                      glowColor="blue"
-                      customSize
-                      className="h-full !p-0 !gap-0 !grid-rows-[1fr] !shadow-none"
-                    >
-                    <Card
-                    className={`relative overflow-hidden h-full border-0 shadow-none bg-transparent ${
-                    course.featured ? "ring-2 ring-primary" : ""}`
-                    }>
-                    
-                      {course.featured &&
-                    <div className="absolute top-0 right-0 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-bl-lg z-10">
-                          Most Popular
-                        </div>
-                    }
-                      <CardContent className="p-6 flex flex-col h-full">
-                        <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-ocean-surface text-secondary-foreground">
-                          <course.icon className="h-6 w-6" />
-                        </div>
-                        <h4 className="font-display text-lg font-semibold text-foreground mb-2">{course.title}</h4>
-                        <div className="flex items-baseline gap-1 mb-1">
-                          {course.price ?
-                        <>
-                              <span className="text-2xl font-bold text-foreground">฿{course.price}</span>
-                              <span className="text-sm text-muted-foreground">THB</span>
-                            </> :
-
-                        <span className="text-lg font-semibold text-primary">Get Price</span>
-                        }
-                        </div>
-                        <p className="text-xs text-muted-foreground mb-4">{course.duration}</p>
-                        <ul className="space-y-2 mb-6 flex-1">
-                          {course.highlights.map((h) =>
-                        <li key={h} className="flex items-start gap-2 text-sm text-foreground/80">
-                              <Award className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                              {h}
-                            </li>
-                        )}
-                        </ul>
-                        <div className="space-y-2">
-                          {course.hasDetails &&
-                        <Button
-                          variant="ghost"
-                          className="rounded-full w-full text-primary hover:text-primary/80"
-                          onClick={() => setSelectedCourse(course.title)}>
-                          
-                              <Info className="h-4 w-4 mr-1" />
-                              More Details
-                            </Button>
-                        }
-                          <Button
-                          asChild
-                          variant={course.featured ? "default" : "outline"}
-                          className="rounded-full w-full">
-                          
-                            <a
-                            href={`${WHATSAPP_URL}${encodeURIComponent(course.title)}`}
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            
-                              {course.price ? "Book Now" : "Get Price"}
-                            </a>
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                    </GlowCard>
-                  </motion.div>
-                )}
-              </div>
-            </motion.div>
-            )}
         </div>
-      </div>
-    </section>
+      </section>
 
-    <CourseDetailDialog
-        courseTitle={selectedCourse || ""}
-        open={!!selectedCourse}
-        onOpenChange={(open) => !open && setSelectedCourse(null)} />
-      
-    </>);
-
+      <CourseDetailDialog courseTitle={selectedCourse || ""} open={!!selectedCourse} onOpenChange={(open) => !open && setSelectedCourse(null)} />
+    </>
+  );
 };
 
 export default CoursesSection;
