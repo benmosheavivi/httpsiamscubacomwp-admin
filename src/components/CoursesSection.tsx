@@ -13,24 +13,32 @@ const categories = [
 {
   label: "Basic Courses",
   description: "Perfect for beginners — take your first breath underwater or earn your first certification.",
-  courses: [
-  {
-    icon: Fish,
-    title: "Discover Scuba Diving",
-    price: "2,600",
-    duration: "1 day",
-    highlights: ["No experience needed", "Pool + ocean dive", "PADI certified instructor"],
-    hasDetails: true
-  },
-  {
-    icon: BookOpen,
-    title: "Open Water Diver",
-    price: "11,000",
-    duration: "3–4 days",
-    highlights: ["Dive to 18m worldwide", "Lifetime certification", "4 open water dives"],
-    featured: true,
-    hasDetails: true
-  }]
+   courses: [
+   {
+     icon: Fish,
+     title: "Discover Scuba Diving",
+     price: "2,600",
+     duration: "1 day",
+     highlights: ["No experience needed", "Pool + ocean dive", "PADI certified instructor"],
+     hasDetails: true
+   },
+   {
+     icon: BookOpen,
+     title: "Open Water Diver",
+     price: "11,000",
+     duration: "3–4 days",
+     highlights: ["Dive to 18m worldwide", "Lifetime certification", "4 open water dives"],
+     featured: true,
+     hasDetails: true
+   },
+   {
+     icon: Fish,
+     title: "Bubble Maker",
+     price: "3,800",
+     duration: "1 day",
+     highlights: ["For children in pool", "Fun introduction", "Safe & supervised"],
+     hasDetails: true
+   }]
 
 },
 {
