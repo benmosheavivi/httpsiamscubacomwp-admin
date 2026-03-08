@@ -45,7 +45,7 @@ const SailRockBanner = () => {
           <Button
             asChild
             size="lg"
-            className="rounded-full bg-accent hover:bg-accent/90 text-accent-foreground px-8 font-semibold"
+            className="rounded-full bg-accent/80 backdrop-blur-md hover:bg-accent/95 text-accent-foreground px-8 font-semibold border border-white/25 shadow-[0_4px_20px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.25)] hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.35)]"
           >
             <Link to="/fun-dive-booking">Book Sail Rock Trip</Link>
           </Button>
