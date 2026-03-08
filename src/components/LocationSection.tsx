@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
-import { LocationMap } from "@/components/ui/expand-map";
+import { ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/U3JzU7fcJsdqVR768?g_st=ic";
+const EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3936.!2d99.8228!3d10.0956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSiam+Scuba!5e0!3m2!1sen!2sth!4v1700000000000!5m2!1sen!2sth";
 
 const LocationSection = () => {
   return (
@@ -15,6 +19,7 @@ const LocationSection = () => {
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
             Our Location
           </h2>
+          <p className="text-muted-foreground mt-2">Sairee Beach, Koh Tao, Thailand</p>
         </motion.div>
 
         <motion.div
@@ -22,12 +27,28 @@ const LocationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="max-w-2xl mx-auto"
+          className="max-w-4xl mx-auto"
         >
-          <LocationMap
-            location="Sairee Beach, Koh Tao"
-            coordinates="10.0956° N, 99.8228° E"
-          />
+          <div className="rounded-2xl overflow-hidden border border-border/50 shadow-lg">
+            <iframe
+              src={EMBED_URL}
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Siam Scuba Location - Sairee Beach, Koh Tao"
+            />
+          </div>
+          <div className="text-center mt-6">
+            <Button asChild className="rounded-full">
+              <a href={GOOGLE_MAPS_LINK} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Open in Google Maps
+              </a>
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>
