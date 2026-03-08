@@ -84,13 +84,13 @@ const categories = [
      highlights: ["Lead certified divers", "Career in diving", "Free internship"],
      featured: true
    },
-  {
-    icon: Award,
-    title: "IDC (Instructor Course)",
-    price: null,
-    duration: "Varies",
-    highlights: ["Become a PADI Instructor", "Full instructor training", "Teaching certifications"]
-  }]
+   {
+     icon: Award,
+     title: "IDC (Instructor Course)",
+     price: null,
+     duration: "Varies",
+     highlights: ["Become a PADI Instructor", "Full instructor training", "Free internship"]
+   }]
 
 },
 {
