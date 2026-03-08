@@ -1,24 +1,30 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 import logo from "@/assets/siam-logo.png";
 import padi from "@/assets/padi-logo.png";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
+  const quickLinks = [
+    { label: t("nav_courses"), id: "courses" },
+    { label: t("nav_fun_diving"), id: "fun-diving" },
+    { label: t("nav_boats"), id: "boats" },
+    { label: t("nav_about"), id: "about" },
+  ];
+
   return (
     <footer className="bg-foreground text-background/70 py-12 px-4">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand */}
           <div>
             <img src={logo} alt="Siam Scuba" className="h-10 w-auto mb-3" />
-            <p className="text-sm text-background/50 mb-3">
-              Professional PADI dive center on Koh Tao, Thailand. Small groups, big adventures.
-            </p>
+            <p className="text-sm text-background/50 mb-3">{t("footer_desc")}</p>
             <img src={padi} alt="PADI Dive Center" className="h-8 w-auto opacity-70" />
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="font-display text-sm font-semibold text-background mb-3">Contact</h4>
+            <h4 className="font-display text-sm font-semibold text-background mb-3">{t("footer_contact")}</h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> Sairee Beach, Koh Tao</li>
               <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> +66 (0) 123 456 789</li>
@@ -26,19 +32,16 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Links */}
           <div>
-            <h4 className="font-display text-sm font-semibold text-background mb-3">Quick Links</h4>
+            <h4 className="font-display text-sm font-semibold text-background mb-3">{t("footer_links")}</h4>
             <ul className="space-y-2 text-sm">
-              {["Courses", "Fun Diving", "The Boats", "About Us"].map((label) => (
-                <li key={label}>
+              {quickLinks.map((link) => (
+                <li key={link.id}>
                   <button
-                    onClick={() =>
-                      document.querySelector(`#${label.toLowerCase().replace(/\s/g, "-")}`)?.scrollIntoView({ behavior: "smooth" })
-                    }
+                    onClick={() => document.querySelector(`#${link.id}`)?.scrollIntoView({ behavior: "smooth" })}
                     className="hover:text-primary transition-colors"
                   >
-                    {label}
+                    {link.label}
                   </button>
                 </li>
               ))}
@@ -47,7 +50,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-10 pt-6 border-t border-background/10 text-center text-xs text-background/40">
-          © {new Date().getFullYear()} Siam Scuba. All rights reserved.
+          © {new Date().getFullYear()} Siam Scuba. {t("footer_rights")}
         </div>
       </div>
     </footer>

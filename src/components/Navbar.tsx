@@ -3,20 +3,23 @@ import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/siam-logo.png";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20a%20dive.";
-
-const navLinks = [
-  { label: "Courses", href: "#courses" },
-  { label: "Fun Diving", href: "#fun-diving" },
-  { label: "The Boats", href: "#boats" },
-  { label: "Koh Tao Guide", href: "/blog" },
-  { label: "About Us", href: "#about" },
-];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { label: t("nav_courses"), href: "#courses" },
+    { label: t("nav_fun_diving"), href: "#fun-diving" },
+    { label: t("nav_boats"), href: "#boats" },
+    { label: t("nav_koh_tao_guide"), href: "/blog" },
+    { label: t("nav_about"), href: "#about" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -28,10 +31,7 @@ const Navbar = () => {
 
   const handleNav = (href: string) => {
     setMobileOpen(false);
-    if (href.startsWith("/")) {
-      // Route link — handled by Link component
-      return;
-    }
+    if (href.startsWith("/")) return;
     if (location.pathname !== "/") {
       window.location.href = "/" + href;
       return;
@@ -46,25 +46,16 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex flex-col items-center px-4">
-        {/* Top row: mobile toggle + logo centered + book now */}
         <div className="flex items-center justify-between w-full py-2">
           {/* Desktop left links */}
           <div className="hidden md:flex items-center gap-6">
             {navLinks.slice(0, 2).map((link) =>
               link.href.startsWith("/") ? (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                >
+                <Link key={link.href} to={link.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   {link.label}
                 </Link>
               ) : (
-                <button
-                  key={link.href}
-                  onClick={() => handleNav(link.href)}
-                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                >
+                <button key={link.href} onClick={() => handleNav(link.href)} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   {link.label}
                 </button>
               )
@@ -85,30 +76,25 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-6">
             {navLinks.slice(2).map((link) =>
               link.href.startsWith("/") ? (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                >
+                <Link key={link.href} to={link.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   {link.label}
                 </Link>
               ) : (
-                <button
-                  key={link.href}
-                  onClick={() => handleNav(link.href)}
-                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                >
+                <button key={link.href} onClick={() => handleNav(link.href)} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   {link.label}
                 </button>
               )
             )}
+            <LanguageSwitcher />
             <Button asChild size="sm" className="rounded-full px-6 bg-accent/80 backdrop-blur-md hover:bg-accent/95 text-accent-foreground border border-white/25 shadow-[0_4px_16px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.2)] hover:-translate-y-0.5">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Now</a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">{t("nav_book_now")}</a>
             </Button>
           </div>
 
-          {/* Mobile: empty spacer for balance */}
-          <div className="md:hidden w-6" />
+          {/* Mobile: language switcher */}
+          <div className="md:hidden">
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>
 
@@ -118,26 +104,17 @@ const Navbar = () => {
           <div className="container mx-auto py-4 px-4 flex flex-col gap-3">
             {navLinks.map((link) =>
               link.href.startsWith("/") ? (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-left py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                >
+                <Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)} className="text-left py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   {link.label}
                 </Link>
               ) : (
-                <button
-                  key={link.href}
-                  onClick={() => handleNav(link.href)}
-                  className="text-left py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                >
+                <button key={link.href} onClick={() => handleNav(link.href)} className="text-left py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   {link.label}
                 </button>
               )
             )}
             <Button asChild className="rounded-full bg-accent/80 backdrop-blur-md hover:bg-accent/95 text-accent-foreground border border-white/25 shadow-[0_4px_16px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.2)] hover:-translate-y-0.5 mt-2">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Now</a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">{t("nav_book_now")}</a>
             </Button>
           </div>
         </div>
