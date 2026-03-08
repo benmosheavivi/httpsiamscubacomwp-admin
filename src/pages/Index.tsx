@@ -24,6 +24,7 @@ const Index = () => {
       <WhyChooseUs />
       <BlogPreview />
       <BookingCTA />
+      <LocationSection />
       <Footer />
       <FloatingInstagram />
       <FloatingWhatsApp />
