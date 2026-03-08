@@ -160,13 +160,18 @@ const CoursesSection = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.08 }}>
                   
+                    <GlowCard
+                      glowColor="blue"
+                      customSize
+                      className="h-full !p-0 !gap-0 !grid-rows-[1fr] !shadow-none"
+                    >
                     <Card
-                    className={`relative overflow-hidden h-full border-0 shadow-md hover:shadow-xl transition-shadow ${
+                    className={`relative overflow-hidden h-full border-0 shadow-none bg-transparent ${
                     course.featured ? "ring-2 ring-primary" : ""}`
                     }>
                     
                       {course.featured &&
-                    <div className="absolute top-0 right-0 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-bl-lg">
+                    <div className="absolute top-0 right-0 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-bl-lg z-10">
                           Most Popular
                         </div>
                     }
@@ -221,6 +226,7 @@ const CoursesSection = () => {
                         </div>
                       </CardContent>
                     </Card>
+                    </GlowCard>
                   </motion.div>
                 )}
               </div>
