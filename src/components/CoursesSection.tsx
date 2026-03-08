@@ -44,23 +44,31 @@ const categories = [
 {
   label: "Advanced Courses",
   description: "Push your limits and explore deeper, further, and with more confidence.",
-  courses: [
-  {
-    icon: Star,
-    title: "Advanced Open Water",
-    price: "10,000",
-    duration: "2 days",
-    highlights: ["Dive to 30m", "5 adventure dives", "Deep & navigation skills"],
-    hasDetails: true
-  },
-  {
-    icon: ShieldCheck,
-    title: "Rescue Diver",
-    price: "12,000",
-    duration: "3–4 days",
-    highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
-    hasDetails: true
-  }]
+   courses: [
+   {
+     icon: Star,
+     title: "Advanced Open Water",
+     price: "10,000",
+     duration: "2 days",
+     highlights: ["Dive to 30m", "5 adventure dives", "Deep & navigation skills"],
+     hasDetails: true
+   },
+   {
+     icon: ShieldCheck,
+     title: "Rescue Diver",
+     price: "12,000",
+     duration: "3–4 days",
+     highlights: ["Emergency management", "Rescue techniques", "Stress & panic handling"],
+     hasDetails: true
+   },
+   {
+     icon: Heart,
+     title: "Emergency First Response (EFR)",
+     price: "4,500",
+     duration: "1 day",
+     highlights: ["CPR & first aid", "Internationally certified", "Life-saving skills"],
+     hasDetails: true
+   }]
 
 },
 {
