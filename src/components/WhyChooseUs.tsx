@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, GraduationCap, MapPin, Heart } from "lucide-react";
+import { GlowCard } from "@/components/ui/spotlight-card";
 
 const reasons = [
   {
