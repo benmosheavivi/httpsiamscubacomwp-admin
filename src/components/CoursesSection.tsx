@@ -23,6 +23,7 @@ const CoursesSection = () => {
           icon: Fish,
           title: t("course_dsd"),
           dialogKey: "Discover Scuba Diving",
+          subtitle: "One Day Experience",
           price: "2,600",
           duration: t("dur_1_day"),
           highlights: [t("hl_no_exp"), t("hl_pool_ocean"), t("hl_padi_instructor")],
