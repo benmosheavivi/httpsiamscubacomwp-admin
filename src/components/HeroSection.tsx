@@ -1,87 +1,84 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-ocean.jpg";
-
-const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20a%20dive.";
+import heroImg from "@/assets/hero-turtle.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-end justify-center overflow-hidden pb-28 md:pb-32">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={heroImg} alt="Whale shark diving at Koh Tao" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ocean-deep/70 via-ocean-deep/40 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-background via-background/80 to-transparent" />
+        <img
+          src={heroImg}
+          alt="Sea turtle swimming in crystal clear waters of Koh Tao"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ocean-deep/60 via-ocean-deep/30 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-background via-background/85 to-transparent" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-ocean-light font-body text-sm md:text-base uppercase tracking-[0.3em] mb-4">
-          
-          Koh Tao, Thailand
-        </motion.p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="mb-6"
+        >
+          <span className="inline-block text-ocean-light/80 font-body text-[11px] md:text-xs uppercase tracking-[0.45em] border border-ocean-light/20 rounded-full px-5 py-1.5 backdrop-blur-sm bg-ocean-deep/20">
+            Koh Tao, Thailand
+          </span>
+        </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight max-w-4xl mx-auto">
-          
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-[1.1] max-w-3xl mx-auto"
+        >
           Your Dive Adventure
           <br />
-          <span className="text-ocean-light">Starts Here</span>
+          <span className="text-ocean-light italic">Starts Here</span>
         </motion.h1>
 
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mx-auto mt-6 mb-6 h-px w-24 bg-gradient-to-r from-transparent via-ocean-light/60 to-transparent"
+        />
+
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 text-lg md:text-xl max-w-2xl mx-auto text-accent font-serif font-bold">From your first breath underwater to professional-level training we've got every step covered.
-
-
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-base md:text-lg max-w-xl mx-auto text-primary-foreground/80 font-body font-light leading-relaxed"
+        >
+          From your first breath underwater to professional-level training
+          <br className="hidden md:block" />
+          — we've got every step covered.
         </motion.p>
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
       </div>
 
       {/* Scroll hint */}
       <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary-foreground/60">
-        
-        <ChevronDown className="h-8 w-8" />
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer"
+        onClick={() => window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" })}
+      >
+        <span className="text-primary-foreground/40 font-body text-[10px] uppercase tracking-[0.3em]">
+          Explore
+        </span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+        >
+          <ChevronDown className="h-5 w-5 text-primary-foreground/40" />
+        </motion.div>
       </motion.div>
-    </section>);
-
+    </section>
+  );
 };
 
 export default HeroSection;
