@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, GraduationCap, MapPin, Heart } from "lucide-react";
+import { GlowCard } from "@/components/ui/spotlight-card";
 
 const reasons = [
   {
@@ -50,11 +51,15 @@ const WhyChooseUs = () => {
               transition={{ delay: i * 0.1 }}
               className="text-center"
             >
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
-                <r.icon className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="font-display text-lg font-semibold text-foreground mb-2">{r.title}</h3>
-              <p className="text-sm text-muted-foreground">{r.desc}</p>
+              <GlowCard glowColor="blue" customSize className="h-full !grid-rows-[1fr] !shadow-none !p-6">
+                <div className="flex flex-col items-center">
+                  <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                    <r.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="font-display text-lg font-semibold text-foreground mb-2">{r.title}</h3>
+                  <p className="text-sm text-muted-foreground">{r.desc}</p>
+                </div>
+              </GlowCard>
             </motion.div>
           ))}
         </div>
