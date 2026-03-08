@@ -102,7 +102,7 @@ const Navbar = () => {
                 </button>
               )
             )}
-            <Button asChild size="sm" className="rounded-full px-6 bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button asChild size="sm" className="rounded-full px-6 bg-accent/80 backdrop-blur-md hover:bg-accent/95 text-accent-foreground border border-white/25 shadow-[0_4px_16px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.2)] hover:-translate-y-0.5">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Now</a>
             </Button>
           </div>
@@ -136,7 +136,7 @@ const Navbar = () => {
                 </button>
               )
             )}
-            <Button asChild className="rounded-full bg-accent hover:bg-accent/90 text-accent-foreground mt-2">
+            <Button asChild className="rounded-full bg-accent/80 backdrop-blur-md hover:bg-accent/95 text-accent-foreground border border-white/25 shadow-[0_4px_16px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.2)] hover:-translate-y-0.5 mt-2">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Book Now</a>
             </Button>
           </div>

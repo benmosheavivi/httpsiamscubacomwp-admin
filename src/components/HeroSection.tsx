@@ -51,7 +51,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-base md:text-lg max-w-xl mx-auto text-primary-foreground/80 font-body font-light leading-relaxed"
+          className="text-base md:text-lg max-w-xl mx-auto font-body font-light leading-relaxed text-gradient-navy drop-shadow-[0_1px_2px_rgba(255,255,255,0.3)]"
         >
           From your first breath underwater to professional-level training
           <br className="hidden md:block" />
