@@ -51,6 +51,7 @@ const categories = [
      price: "10,000",
      duration: "2 days",
      highlights: ["Dive to 30m", "5 adventure dives", "Deep & navigation skills"],
+     featured: true,
      hasDetails: true
    },
    {
