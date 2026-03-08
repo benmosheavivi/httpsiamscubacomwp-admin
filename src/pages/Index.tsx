@@ -7,6 +7,7 @@ import BoatsSection from "@/components/BoatsSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import BlogPreview from "@/components/BlogPreview";
 import BookingCTA from "@/components/BookingCTA";
+import LocationSection from "@/components/LocationSection";
 import Footer from "@/components/Footer";
 import FloatingInstagram from "@/components/FloatingInstagram";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -23,6 +24,7 @@ const Index = () => {
       <WhyChooseUs />
       <BlogPreview />
       <BookingCTA />
+      <LocationSection />
       <Footer />
       <FloatingInstagram />
       <FloatingWhatsApp />
