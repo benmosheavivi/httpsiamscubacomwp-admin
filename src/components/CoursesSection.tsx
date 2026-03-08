@@ -180,7 +180,9 @@ const CoursesSection = () => {
                             <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-ocean-surface text-secondary-foreground">
                               <course.icon className="h-6 w-6" />
                             </div>
-                            <h4 className="font-display text-lg font-semibold text-foreground mb-2">{course.title}</h4>
+                            <h4 className="font-display text-lg font-semibold text-foreground mb-0.5">{course.title}</h4>
+                            {course.subtitle && <p className="text-sm text-muted-foreground italic mb-2">{course.subtitle}</p>}
+                            {!course.subtitle && <div className="mb-2" />}
                             <div className="flex items-baseline gap-1 mb-1">
                               {course.price ? (
                                 <>
