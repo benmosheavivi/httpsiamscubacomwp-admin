@@ -14,6 +14,10 @@ const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'm%2
 const CoursesSection = () => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const { t } = useLanguage();
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: false, slidesToScroll: 1 });
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   const categories = [
     {
