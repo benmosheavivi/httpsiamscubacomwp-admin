@@ -11,7 +11,58 @@ import useEmblaCarousel from "embla-carousel-react";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'm%20interested%20in%20";
 
-const CoursesSection = () => {
+const CourseCard = ({ course, t, setSelectedCourse }: { course: any; t: (key: any) => string; setSelectedCourse: (key: string) => void }) => (
+  <GlowCard glowColor="blue" customSize className="h-full !p-0 !gap-0 !grid-rows-[1fr] !shadow-none">
+    <Card className={`relative overflow-hidden h-full border-0 shadow-none bg-transparent ${course.featured ? "ring-2 ring-primary" : ""}`}>
+      {course.featured && (
+        <div className="absolute top-0 right-0 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-bl-lg z-10">
+          {t("courses_most_popular")}
+        </div>
+      )}
+      <CardContent className="p-6 flex flex-col h-full">
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-ocean-surface text-secondary-foreground">
+          <course.icon className="h-6 w-6" />
+        </div>
+        <h4 className="font-display text-lg font-semibold text-foreground mb-0.5">{course.title}</h4>
+        {course.subtitle && <p className="text-sm text-muted-foreground italic mb-2">{course.subtitle}</p>}
+        {!course.subtitle && <div className="mb-2" />}
+        <div className="flex items-baseline gap-1 mb-1">
+          {course.price ? (
+            <>
+              <span className="text-2xl font-bold text-foreground">฿{course.price}</span>
+              <span className="text-sm text-muted-foreground">THB</span>
+            </>
+          ) : (
+            <span className="text-lg font-semibold text-primary">{t("courses_get_price")}</span>
+          )}
+        </div>
+        <p className="text-xs text-muted-foreground mb-4">{course.duration}</p>
+        <ul className="space-y-2 mb-6 flex-1">
+          {course.highlights.map((h: string) => (
+            <li key={h} className="flex items-start gap-2 text-sm text-foreground/80">
+              <Award className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+              {h}
+            </li>
+          ))}
+        </ul>
+        <div className="space-y-2">
+          {course.hasDetails && (
+            <Button variant="ghost" className="rounded-full w-full text-primary hover:text-primary/80" onClick={() => setSelectedCourse(course.dialogKey)}>
+              <Info className="h-4 w-4 mr-1" />
+              {t("courses_more_details")}
+            </Button>
+          )}
+          <Button asChild variant={course.featured ? "default" : "outline"} className="rounded-full w-full">
+            <a href={`${WHATSAPP_URL}${encodeURIComponent(course.dialogKey)}`} target="_blank" rel="noopener noreferrer">
+              {course.price ? t("courses_book_now") : t("courses_get_price")}
+            </a>
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  </GlowCard>
+);
+
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const { t } = useLanguage();
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: false, slidesToScroll: 1 });
