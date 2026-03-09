@@ -382,6 +382,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_deep: "צלילה עמוקה",
     course_dpv: "קטנוע תת-ימי (DPV)",
     course_sidemount: "צלילת סיידמאונט",
+    course_ppb: "שליטה מושלמת בציפה",
 
     hl_no_exp: "ללא ניסיון נדרש",
     hl_pool_ocean: "בריכה + צלילת ים",
