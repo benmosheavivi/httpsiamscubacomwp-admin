@@ -445,8 +445,12 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_ppb_buoyancy: "שליטה מושלמת בציפה",
     hl_ppb_air: "צריכת אוויר מופחתת",
     hl_ppb_glide: "גלישה חלקה מעל השוניות",
+    hl_uw_10dives: "10 צלילות צילום ייעודיות",
+    hl_uw_1on1: "מדריך אחד על אחד",
+    hl_uw_padi_cert: "הסמכת PADI צילום תת-ימי",
 
     dur_1_day: "יום אחד",
+    dur_5_days: "5 ימים",
     dur_2_days: "יומיים",
     dur_3_4_days: "3–4 ימים",
     dur_4_8_weeks: "4–8 שבועות",
