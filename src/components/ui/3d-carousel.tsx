@@ -1,6 +1,4 @@
-"use client"
-
-import { memo, useEffect, useLayoutEffect, useMemo, useState } from "react"
+import { memo, useCallback, useEffect, useLayoutEffect, useState } from "react"
 import {
   AnimatePresence,
   motion,
@@ -9,60 +7,27 @@ import {
   useTransform,
 } from "framer-motion"
 
-export const useIsomorphicLayoutEffect =
+const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect
 
-type UseMediaQueryOptions = {
-  defaultValue?: boolean
-  initializeWithValue?: boolean
-}
-
-const IS_SERVER = typeof window === "undefined"
-
-export function useMediaQuery(
-  query: string,
-  {
-    defaultValue = false,
-    initializeWithValue = true,
-  }: UseMediaQueryOptions = {}
-): boolean {
-  const getMatches = (query: string): boolean => {
-    if (IS_SERVER) {
-      return defaultValue
-    }
-    return window.matchMedia(query).matches
-  }
-
+function useMediaQuery(query: string): boolean {
   const [matches, setMatches] = useState(() => {
-    if (initializeWithValue) {
-      return getMatches(query)
-    }
-    return defaultValue
+    if (typeof window === "undefined") return false
+    return window.matchMedia(query).matches
   })
 
-  const handleChange = () => {
-    setMatches(getMatches(query))
-  }
-
   useIsomorphicLayoutEffect(() => {
-    const matchMedia = window.matchMedia(query)
-    handleChange()
-
-    matchMedia.addEventListener("change", handleChange)
-
-    return () => {
-      matchMedia.removeEventListener("change", handleChange)
-    }
+    const mql = window.matchMedia(query)
+    const handler = () => setMatches(mql.matches)
+    handler()
+    mql.addEventListener("change", handler)
+    return () => mql.removeEventListener("change", handler)
   }, [query])
 
   return matches
 }
 
-const duration = 0.15
-const transition = { duration, ease: [0.32, 0.72, 0, 1] as [number, number, number, number] }
-const transitionOverlay = { duration: 0.5, ease: [0.32, 0.72, 0, 1] as [number, number, number, number] }
-
-const Carousel = memo(
+const CylinderCarousel = memo(
   ({
     handleClick,
     controls,
@@ -74,19 +39,25 @@ const Carousel = memo(
     cards: string[]
     isCarouselActive: boolean
   }) => {
-    const isScreenSizeSm = useMediaQuery("(max-width: 640px)")
-    const cylinderWidth = isScreenSizeSm ? 1100 : 1800
+    const isSmall = useMediaQuery("(max-width: 640px)")
+    const cylinderWidth = isSmall ? 1100 : 1800
     const faceCount = cards.length
-    const faceWidth = cylinderWidth / faceCount
+    const faceWidth = (cylinderWidth / faceCount)
     const radius = cylinderWidth / (2 * Math.PI)
     const rotation = useMotionValue(0)
-    const transform = useTransform(
-      rotation,
-      (value) => `rotate3d(0, 1, 0, ${value}deg)`
-    )
+    const transform = useTransform(rotation, (val) => {
+      return `rotate3d(0, 1, 0, ${val}deg)`
+    })
 
     return (
-      <div className="flex h-full items-center justify-center" style={{ perspective: "1000px", transformStyle: "preserve-3d", willChange: "transform" }}>
+      <div
+        className="flex h-full items-center justify-center"
+        style={{
+          perspective: "1000px",
+          transformStyle: "preserve-3d",
+          willChange: "transform",
+        }}
+      >
         <motion.div
           drag={isCarouselActive ? "x" : false}
           className="relative flex h-full w-full items-center justify-center"
@@ -96,68 +67,70 @@ const Carousel = memo(
             width: cylinderWidth,
             transformStyle: "preserve-3d",
           }}
-          onDrag={(_, info) =>
-            isCarouselActive &&
-            rotation.set(rotation.get() + info.offset.x * 0.05)
-          }
-          onDragEnd={(_, info) =>
-            isCarouselActive &&
-            controls.start({
-              rotateY: rotation.get() + info.velocity.x * 0.05,
-              transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 30,
-                mass: 0.1,
-              },
-            })
-          }
+          onDrag={(_, info) => {
+            if (isCarouselActive) {
+              rotation.set(rotation.get() + info.offset.x * 0.05)
+            }
+          }}
+          onDragEnd={(_, info) => {
+            if (isCarouselActive) {
+              controls.start({
+                rotateY: rotation.get() + info.velocity.x * 0.05,
+                transition: {
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 30,
+                  mass: 0.1,
+                },
+              })
+            }
+          }}
           animate={controls}
         >
-          {cards.map((imgUrl, i) => (
-            <motion.div
-              key={`key-${i}`}
-              className="absolute flex h-full origin-center items-center justify-center rounded-xl p-2"
-              style={{
-                width: `${faceWidth}px`,
-                transform: `rotateY(${i * (360 / faceCount)}deg) translateZ(${radius}px)`,
-              }}
-              onClick={() => handleClick(imgUrl, i)}
-            >
-              <img
-                src={imgUrl}
-                alt={`carousel-item-${i}`}
-                className="pointer-events-none h-full w-full rounded-xl object-cover transition-all duration-300"
-              />
-            </motion.div>
-          ))}
+          {cards.map((imgUrl, i) => {
+            const angle = i * (360 / faceCount)
+            return (
+              <motion.div
+                key={`card-${i}`}
+                className="absolute flex h-full origin-center items-center justify-center rounded-xl p-2"
+                style={{
+                  width: `${faceWidth}px`,
+                  transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
+                }}
+                onClick={() => handleClick(imgUrl, i)}
+              >
+                <img
+                  src={imgUrl}
+                  alt={`carousel-${i}`}
+                  className="pointer-events-none h-full w-full rounded-xl object-cover shadow-lg transition-all duration-300 hover:scale-105"
+                  draggable={false}
+                />
+              </motion.div>
+            )
+          })}
         </motion.div>
       </div>
     )
   }
 )
 
-Carousel.displayName = "Carousel"
-
-const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`
-const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`
+CylinderCarousel.displayName = "CylinderCarousel"
 
 function ThreeDPhotoCarousel({ images }: { images: string[] }) {
   const [activeImg, setActiveImg] = useState<string | null>(null)
   const [isCarouselActive, setIsCarouselActive] = useState(true)
   const controls = useAnimation()
-  const cards = useMemo(() => images, [images])
 
-  const handleClick = (imgUrl: string) => {
+  const handleClick = useCallback((imgUrl: string, _index: number) => {
     setActiveImg(imgUrl)
     setIsCarouselActive(false)
     controls.stop()
-  }
+  }, [controls])
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setActiveImg(null)
     setIsCarouselActive(true)
-  }
+  }, [])
 
   return (
     <motion.div layout className="relative">
@@ -167,8 +140,8 @@ function ThreeDPhotoCarousel({ images }: { images: string[] }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={transitionOverlay}
-            className="absolute inset-0 z-10 flex items-center justify-center bg-black/60 backdrop-blur-sm rounded-xl cursor-pointer"
+            transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] as [number, number, number, number] }}
+            className="absolute inset-0 z-10 flex items-center justify-center bg-black/70 backdrop-blur-md rounded-xl cursor-pointer"
             onClick={handleClose}
           >
             <motion.img
@@ -178,26 +151,19 @@ function ThreeDPhotoCarousel({ images }: { images: string[] }) {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              transition={transition}
+              transition={{ duration: 0.15, ease: [0.32, 0.72, 0, 1] as [number, number, number, number] }}
             />
           </motion.div>
         )}
       </AnimatePresence>
 
       <div className="relative h-[250px] md:h-[350px] w-full overflow-hidden rounded-xl">
-        <motion.div
-          className="h-full w-full"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          <Carousel
-            handleClick={handleClick}
-            controls={controls}
-            cards={cards}
-            isCarouselActive={isCarouselActive}
-          />
-        </motion.div>
+        <CylinderCarousel
+          handleClick={handleClick}
+          controls={controls}
+          cards={images}
+          isCarouselActive={isCarouselActive}
+        />
       </div>
     </motion.div>
   )
