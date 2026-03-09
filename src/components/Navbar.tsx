@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/siam-logo.png";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import SiteSearch from "@/components/SiteSearch";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20a%20dive.";
