@@ -39,10 +39,8 @@ const FunDivingSection = () => {
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
             <Card className="border-0 shadow-lg bg-card overflow-hidden">
-              <div className="grid grid-cols-3 h-40 md:h-48">
-                <img src={sailRockChimney} alt="Divers at Sail Rock Chimney" className="w-full h-full object-cover" />
-                <img src={sailRockSilhouette} alt="Diver silhouette at Sail Rock" className="w-full h-full object-cover" />
-                <img src={sailRockCoral} alt="Sail Rock coral and fish" className="w-full h-full object-cover" />
+              <div className="h-48 md:h-64">
+                <ThreeDPhotoCarousel images={[sailRockChimney, sailRockSilhouette, sailRockCoral]} />
               </div>
               <CardContent className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
                 <div className="flex-1 text-center md:text-left">
