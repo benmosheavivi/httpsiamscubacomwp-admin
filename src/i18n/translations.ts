@@ -62,6 +62,7 @@ type TranslationStrings = {
   course_deep: string;
   course_dpv: string;
   course_sidemount: string;
+  course_ppb: string;
 
   // Course highlights
   hl_no_exp: string;
@@ -99,6 +100,9 @@ type TranslationStrings = {
   hl_streamline: string;
   hl_independent_gas: string;
   hl_advanced_config: string;
+  hl_ppb_buoyancy: string;
+  hl_ppb_air: string;
+  hl_ppb_glide: string;
 
   // Duration
   dur_1_day: string;
@@ -224,6 +228,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_deep: "Deep Diving",
     course_dpv: "Underwater Scooter (DPV)",
     course_sidemount: "Sidemount Diving",
+    course_ppb: "Peak Performance Buoyancy",
 
     hl_no_exp: "No experience needed",
     hl_pool_ocean: "Pool + ocean dive",
@@ -260,6 +265,9 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_streamline: "Improved streamlining",
     hl_independent_gas: "Independent gas supply",
     hl_advanced_config: "Advanced configuration",
+    hl_ppb_buoyancy: "Master buoyancy control",
+    hl_ppb_air: "Use less air",
+    hl_ppb_glide: "Glide over reefs effortlessly",
 
     dur_1_day: "1 day",
     dur_2_days: "2 days",
@@ -374,6 +382,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_deep: "צלילה עמוקה",
     course_dpv: "קטנוע תת-ימי (DPV)",
     course_sidemount: "צלילת סיידמאונט",
+    course_ppb: "שליטה מושלמת בציפה",
 
     hl_no_exp: "ללא ניסיון נדרש",
     hl_pool_ocean: "בריכה + צלילת ים",
@@ -410,6 +419,9 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_streamline: "אירודינמיקה משופרת",
     hl_independent_gas: "אספקת גז עצמאית",
     hl_advanced_config: "תצורה מתקדמת",
+    hl_ppb_buoyancy: "שליטה מושלמת בציפה",
+    hl_ppb_air: "צריכת אוויר מופחתת",
+    hl_ppb_glide: "גלישה חלקה מעל השוניות",
 
     dur_1_day: "יום אחד",
     dur_2_days: "יומיים",
@@ -524,6 +536,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_deep: "Buceo Profundo",
     course_dpv: "Scooter Submarino (DPV)",
     course_sidemount: "Buceo Sidemount",
+    course_ppb: "Flotabilidad Perfecta",
 
     hl_no_exp: "Sin experiencia necesaria",
     hl_pool_ocean: "Piscina + buceo en mar",
@@ -560,6 +573,9 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_streamline: "Hidrodinámica mejorada",
     hl_independent_gas: "Suministro de gas independiente",
     hl_advanced_config: "Configuración avanzada",
+    hl_ppb_buoyancy: "Domina el control de flotabilidad",
+    hl_ppb_air: "Usa menos aire",
+    hl_ppb_glide: "Deslízate sobre los arrecifes",
 
     dur_1_day: "1 día",
     dur_2_days: "2 días",
@@ -674,6 +690,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_deep: "Plongée Profonde",
     course_dpv: "Scooter Sous-marin (DPV)",
     course_sidemount: "Plongée Sidemount",
+    course_ppb: "Flottabilité Parfaite",
 
     hl_no_exp: "Aucune expérience requise",
     hl_pool_ocean: "Piscine + plongée en mer",
@@ -710,6 +727,9 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_streamline: "Hydrodynamisme amélioré",
     hl_independent_gas: "Alimentation en gaz indépendante",
     hl_advanced_config: "Configuration avancée",
+    hl_ppb_buoyancy: "Maîtrisez le contrôle de flottabilité",
+    hl_ppb_air: "Consommez moins d'air",
+    hl_ppb_glide: "Glissez au-dessus des récifs",
 
     dur_1_day: "1 jour",
     dur_2_days: "2 jours",

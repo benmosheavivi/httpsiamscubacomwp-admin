@@ -114,8 +114,30 @@ const courseDetails: Record<string, CourseDetail> = {
     ],
     price: "12,000 THB (Add EFR for 4,000 THB if needed)",
   },
+  "Peak Performance Buoyancy": {
+    header: "Master Your Buoyancy & Become a Better Diver",
+    intro: "Take your diving to the next level by mastering the art of buoyancy control. Learn to ascend and descend with precision, glide effortlessly over the reef, and position yourself perfectly to observe marine life—all while using less air and expending less energy.",
+    included: [
+      "PADI Peak Performance Buoyancy manual",
+      "2 PPB training dives",
+      "PADI Certification card",
+      "Rental of all scuba equipment",
+      "FREE use of dive computer",
+      "Log book",
+      "Maximum 4 students per PADI Instructor",
+    ],
+    learns: [
+      "Fine-tune your weighting for perfect trim",
+      "Hover motionless in any position",
+      "Reduce air consumption significantly",
+      "Navigate delicate environments without contact",
+    ],
+    prerequisites: [
+      "Open Water certification (or equivalent)",
+    ],
+    price: "5,500 THB",
+  },
 };
-
 interface CourseDetailDialogProps {
   courseTitle: string;
   open: boolean;
