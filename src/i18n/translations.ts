@@ -573,6 +573,9 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_streamline: "Hidrodinámica mejorada",
     hl_independent_gas: "Suministro de gas independiente",
     hl_advanced_config: "Configuración avanzada",
+    hl_ppb_buoyancy: "Domina el control de flotabilidad",
+    hl_ppb_air: "Usa menos aire",
+    hl_ppb_glide: "Deslízate sobre los arrecifes",
 
     dur_1_day: "1 día",
     dur_2_days: "2 días",
