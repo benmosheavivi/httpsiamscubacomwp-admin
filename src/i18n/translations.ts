@@ -664,6 +664,10 @@ export const translations: Record<Language, TranslationStrings> = {
     footer_contact: "Contacto",
     footer_links: "Enlaces Rápidos",
     footer_rights: "Todos los derechos reservados.",
+    search_placeholder: "Buscar cursos, buceo, barcos...",
+    search_no_results: "No se encontraron resultados.",
+    share_button: "Compartir",
+    share_copied: "¡Enlace copiado!",
   },
   fr: {
     nav_courses: "Cours",
