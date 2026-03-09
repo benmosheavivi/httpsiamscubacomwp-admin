@@ -419,6 +419,9 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_streamline: "אירודינמיקה משופרת",
     hl_independent_gas: "אספקת גז עצמאית",
     hl_advanced_config: "תצורה מתקדמת",
+    hl_ppb_buoyancy: "שליטה מושלמת בציפה",
+    hl_ppb_air: "צריכת אוויר מופחתת",
+    hl_ppb_glide: "גלישה חלקה מעל השוניות",
 
     dur_1_day: "יום אחד",
     dur_2_days: "יומיים",
