@@ -21,6 +21,10 @@ interface CourseDetail {
   price: string;
   extras?: string[];
   specialOffer?: string;
+  notIncluded?: string[];
+  whatToBring?: string[];
+  payment?: string[];
+  nextStep?: string;
 }
 
 const courseDetails: Record<string, CourseDetail> = {
