@@ -348,6 +348,10 @@ export const translations: Record<Language, TranslationStrings> = {
     footer_contact: "Contact",
     footer_links: "Quick Links",
     footer_rights: "All rights reserved.",
+    search_placeholder: "Search courses, diving, boats...",
+    search_no_results: "No results found.",
+    share_button: "Share",
+    share_copied: "Link copied!",
   },
   he: {
     nav_courses: "קורסים",
