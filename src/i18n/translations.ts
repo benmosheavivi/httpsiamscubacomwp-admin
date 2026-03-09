@@ -64,8 +64,12 @@ type TranslationStrings = {
   course_sidemount: string;
   course_ppb: string;
   course_uw_photo: string;
+  course_review: string;
 
   // Course highlights
+  hl_review_refresh: string;
+  hl_review_2dives: string;
+  hl_review_instructor: string;
   hl_no_exp: string;
   hl_pool_ocean: string;
   hl_padi_instructor: string;
