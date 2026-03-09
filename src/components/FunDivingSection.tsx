@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Compass, Clock, Users, Waves, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
