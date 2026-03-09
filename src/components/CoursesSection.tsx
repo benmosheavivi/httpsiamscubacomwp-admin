@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck, Info, Heart, Feather, ChevronLeft, ChevronRight, Share2, Camera } from "lucide-react";
+import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck, Info, Heart, Feather, ChevronLeft, ChevronRight, Share2, Camera, Waves } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { GlowCard } from "@/components/ui/spotlight-card";
@@ -124,6 +124,15 @@ const CoursesSection = ({ initialCourse }: { initialCourse?: string | null }) =>
           price: "3,800",
           duration: t("dur_1_day"),
           highlights: [t("hl_children"), t("hl_fun_intro"), t("hl_safe")],
+          hasDetails: true,
+        },
+        {
+          icon: Waves,
+          title: t("course_review"),
+          dialogKey: "Scuba Review",
+          price: "2,500",
+          duration: t("dur_1_day"),
+          highlights: [t("hl_review_refresh"), t("hl_review_2dives"), t("hl_review_instructor")],
           hasDetails: true,
         },
       ],
