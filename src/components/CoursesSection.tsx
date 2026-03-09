@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck, Info, Heart, Feather, ChevronLeft, ChevronRight } from "lucide-react";
+import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck, Info, Heart, Feather, ChevronLeft, ChevronRight, Share2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { GlowCard } from "@/components/ui/spotlight-card";
@@ -8,10 +8,24 @@ import padi from "@/assets/padi-logo.png";
 import CourseDetailDialog from "./CourseDetailDialog";
 import { useLanguage } from "@/i18n/LanguageContext";
 import useEmblaCarousel from "embla-carousel-react";
+import { toast } from "sonner";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'm%20interested%20in%20";
 
-const CourseCard = ({ course, t, setSelectedCourse }: { course: any; t: (key: any) => string; setSelectedCourse: (key: string) => void }) => (
+const CourseCard = ({ course, t, setSelectedCourse }: { course: any; t: (key: any) => string; setSelectedCourse: (key: string) => void }) => {
+  const handleShare = async () => {
+    const text = `${course.title}${course.price ? ` — ฿${course.price} THB` : ""}\n${course.duration}\n${course.highlights.join("\n")}\n\nSiam Scuba — Koh Tao\n${window.location.origin}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: course.title, text, url: window.location.origin });
+      } catch {}
+    } else {
+      await navigator.clipboard.writeText(text);
+      toast.success(t("share_copied"));
+    }
+  };
+
+  return (
   <GlowCard glowColor="blue" customSize className="h-full !p-0 !gap-0 !grid-rows-[1fr] !shadow-none">
     <Card className={`relative overflow-hidden h-full border-0 shadow-none bg-transparent ${course.featured ? "ring-2 ring-primary" : ""}`}>
       {course.featured && (
@@ -52,16 +66,22 @@ const CourseCard = ({ course, t, setSelectedCourse }: { course: any; t: (key: an
               {t("courses_more_details")}
             </Button>
           )}
-          <Button asChild variant={course.featured ? "default" : "outline"} className="rounded-full w-full">
-            <a href={`${WHATSAPP_URL}${encodeURIComponent(course.dialogKey)}`} target="_blank" rel="noopener noreferrer">
-              {course.price ? t("courses_book_now") : t("courses_get_price")}
-            </a>
-          </Button>
+          <div className="flex gap-2">
+            <Button asChild variant={course.featured ? "default" : "outline"} className="rounded-full flex-1">
+              <a href={`${WHATSAPP_URL}${encodeURIComponent(course.dialogKey)}`} target="_blank" rel="noopener noreferrer">
+                {course.price ? t("courses_book_now") : t("courses_get_price")}
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" className="rounded-full shrink-0 text-muted-foreground hover:text-primary" onClick={handleShare} aria-label={t("share_button")}>
+              <Share2 className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </CardContent>
     </Card>
   </GlowCard>
-);
+  );
+};
 
 const CoursesSection = () => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);

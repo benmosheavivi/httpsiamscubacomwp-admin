@@ -184,6 +184,14 @@ type TranslationStrings = {
   footer_contact: string;
   footer_links: string;
   footer_rights: string;
+
+  // Search
+  search_placeholder: string;
+  search_no_results: string;
+
+  // Share
+  share_button: string;
+  share_copied: string;
 };
 
 export const translations: Record<Language, TranslationStrings> = {
@@ -340,6 +348,10 @@ export const translations: Record<Language, TranslationStrings> = {
     footer_contact: "Contact",
     footer_links: "Quick Links",
     footer_rights: "All rights reserved.",
+    search_placeholder: "Search courses, diving, boats...",
+    search_no_results: "No results found.",
+    share_button: "Share",
+    share_copied: "Link copied!",
   },
   he: {
     nav_courses: "קורסים",
@@ -494,6 +506,10 @@ export const translations: Record<Language, TranslationStrings> = {
     footer_contact: "יצירת קשר",
     footer_links: "קישורים מהירים",
     footer_rights: "כל הזכויות שמורות.",
+    search_placeholder: "חפש קורסים, צלילה, סירות...",
+    search_no_results: "לא נמצאו תוצאות.",
+    share_button: "שתף",
+    share_copied: "הקישור הועתק!",
   },
   es: {
     nav_courses: "Cursos",
@@ -648,6 +664,10 @@ export const translations: Record<Language, TranslationStrings> = {
     footer_contact: "Contacto",
     footer_links: "Enlaces Rápidos",
     footer_rights: "Todos los derechos reservados.",
+    search_placeholder: "Buscar cursos, buceo, barcos...",
+    search_no_results: "No se encontraron resultados.",
+    share_button: "Compartir",
+    share_copied: "¡Enlace copiado!",
   },
   fr: {
     nav_courses: "Cours",
@@ -802,5 +822,9 @@ export const translations: Record<Language, TranslationStrings> = {
     footer_contact: "Contact",
     footer_links: "Liens Rapides",
     footer_rights: "Tous droits réservés.",
+    search_placeholder: "Rechercher cours, plongée, bateaux...",
+    search_no_results: "Aucun résultat trouvé.",
+    share_button: "Partager",
+    share_copied: "Lien copié !",
   },
 };
