@@ -457,6 +457,9 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_uw_10dives: "10 צלילות צילום ייעודיות",
     hl_uw_1on1: "מדריך אחד על אחד",
     hl_uw_padi_cert: "הסמכת PADI צילום תת-ימי",
+    hl_review_refresh: "ריענון מיומנויות",
+    hl_review_2dives: "2 צלילות במים פתוחים",
+    hl_review_instructor: "ליווי מדריך אישי",
 
     dur_1_day: "יום אחד",
     dur_5_days: "5 ימים",
