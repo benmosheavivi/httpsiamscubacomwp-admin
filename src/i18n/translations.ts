@@ -63,6 +63,7 @@ type TranslationStrings = {
   course_dpv: string;
   course_sidemount: string;
   course_ppb: string;
+  course_uw_photo: string;
 
   // Course highlights
   hl_no_exp: string;
@@ -103,10 +104,14 @@ type TranslationStrings = {
   hl_ppb_buoyancy: string;
   hl_ppb_air: string;
   hl_ppb_glide: string;
+  hl_uw_10dives: string;
+  hl_uw_1on1: string;
+  hl_uw_padi_cert: string;
 
   // Duration
   dur_1_day: string;
   dur_2_days: string;
+  dur_5_days: string;
   dur_3_4_days: string;
   dur_4_8_weeks: string;
   dur_varies: string;
@@ -237,6 +242,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_dpv: "Underwater Scooter (DPV)",
     course_sidemount: "Sidemount Diving",
     course_ppb: "Peak Performance Buoyancy",
+    course_uw_photo: "UW Photography & Video",
 
     hl_no_exp: "No experience needed",
     hl_pool_ocean: "Pool + ocean dive",
@@ -276,8 +282,12 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_ppb_buoyancy: "Master buoyancy control",
     hl_ppb_air: "Use less air",
     hl_ppb_glide: "Glide over reefs effortlessly",
+    hl_uw_10dives: "10 dedicated photo dives",
+    hl_uw_1on1: "1-on-1 instructor",
+    hl_uw_padi_cert: "PADI UW Photo certification",
 
     dur_1_day: "1 day",
+    dur_5_days: "5 days",
     dur_2_days: "2 days",
     dur_3_4_days: "3–4 days",
     dur_4_8_weeks: "4–8 weeks",
@@ -395,6 +405,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_dpv: "קטנוע תת-ימי (DPV)",
     course_sidemount: "צלילת סיידמאונט",
     course_ppb: "שליטה מושלמת בציפה",
+    course_uw_photo: "צילום תת-ימי ווידאו",
 
     hl_no_exp: "ללא ניסיון נדרש",
     hl_pool_ocean: "בריכה + צלילת ים",
@@ -434,8 +445,12 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_ppb_buoyancy: "שליטה מושלמת בציפה",
     hl_ppb_air: "צריכת אוויר מופחתת",
     hl_ppb_glide: "גלישה חלקה מעל השוניות",
+    hl_uw_10dives: "10 צלילות צילום ייעודיות",
+    hl_uw_1on1: "מדריך אחד על אחד",
+    hl_uw_padi_cert: "הסמכת PADI צילום תת-ימי",
 
     dur_1_day: "יום אחד",
+    dur_5_days: "5 ימים",
     dur_2_days: "יומיים",
     dur_3_4_days: "3–4 ימים",
     dur_4_8_weeks: "4–8 שבועות",
@@ -553,6 +568,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_dpv: "Scooter Submarino (DPV)",
     course_sidemount: "Buceo Sidemount",
     course_ppb: "Flotabilidad Perfecta",
+    course_uw_photo: "Fotografía y Video Submarino",
 
     hl_no_exp: "Sin experiencia necesaria",
     hl_pool_ocean: "Piscina + buceo en mar",
@@ -592,8 +608,12 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_ppb_buoyancy: "Domina el control de flotabilidad",
     hl_ppb_air: "Usa menos aire",
     hl_ppb_glide: "Deslízate sobre los arrecifes",
+    hl_uw_10dives: "10 inmersiones de foto dedicadas",
+    hl_uw_1on1: "Instructor 1 a 1",
+    hl_uw_padi_cert: "Certificación PADI Foto Submarina",
 
     dur_1_day: "1 día",
+    dur_5_days: "5 días",
     dur_2_days: "2 días",
     dur_3_4_days: "3–4 días",
     dur_4_8_weeks: "4–8 semanas",
@@ -711,6 +731,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_dpv: "Scooter Sous-marin (DPV)",
     course_sidemount: "Plongée Sidemount",
     course_ppb: "Flottabilité Parfaite",
+    course_uw_photo: "Photo et Vidéo Sous-marine",
 
     hl_no_exp: "Aucune expérience requise",
     hl_pool_ocean: "Piscine + plongée en mer",
@@ -750,8 +771,12 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_ppb_buoyancy: "Maîtrisez le contrôle de flottabilité",
     hl_ppb_air: "Consommez moins d'air",
     hl_ppb_glide: "Glissez au-dessus des récifs",
+    hl_uw_10dives: "10 plongées photo dédiées",
+    hl_uw_1on1: "Instructeur individuel",
+    hl_uw_padi_cert: "Certification PADI Photo Sous-marine",
 
     dur_1_day: "1 jour",
+    dur_5_days: "5 jours",
     dur_2_days: "2 jours",
     dur_3_4_days: "3–4 jours",
     dur_4_8_weeks: "4–8 semaines",

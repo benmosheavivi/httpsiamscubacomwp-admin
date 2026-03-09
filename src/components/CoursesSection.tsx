@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck, Info, Heart, Feather, ChevronLeft, ChevronRight, Share2 } from "lucide-react";
+import { Award, BookOpen, Star, Crown, Fish, Anchor, ArrowDown, Zap, Layers, MessageCircle, ShieldCheck, Info, Heart, Feather, ChevronLeft, ChevronRight, Share2, Camera } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { GlowCard } from "@/components/ui/spotlight-card";
@@ -230,6 +230,15 @@ const CoursesSection = ({ initialCourse }: { initialCourse?: string | null }) =>
           price: null,
           duration: t("dur_2_3_days"),
           highlights: [t("hl_streamline"), t("hl_independent_gas"), t("hl_advanced_config")],
+        },
+        {
+          icon: Camera,
+          title: t("course_uw_photo"),
+          dialogKey: "UW Photography & Videography",
+          price: "37,000",
+          duration: t("dur_5_days"),
+          highlights: [t("hl_uw_10dives"), t("hl_uw_1on1"), t("hl_uw_padi_cert")],
+          hasDetails: true,
         },
       ],
     },

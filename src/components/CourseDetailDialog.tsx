@@ -228,6 +228,45 @@ const courseDetails: Record<string, CourseDetail> = {
     ],
     price: "5,500 THB",
   },
+  "UW Photography & Videography": {
+    header: "📸 Extended PADI Digital UW Photographer & Videographer",
+    intro: "A 5-day intensive course with 10 professional dives dedicated entirely to underwater photography and videography. One-on-one instruction — you're the focus, with no groups. Combine theory, fieldwork, and portfolio building into one unforgettable experience.",
+    structure: [
+      "Duration: 5 days",
+      "10 professional dives tailored for photography",
+      "Full theory session included",
+      "Daily image review & personal feedback",
+    ],
+    included: [
+      "Official PADI Digital UW Photographer certification (advanced level) 🏆",
+      "One-on-one instruction with a professional UW photography instructor 🎓",
+      "Professional-level video training",
+      "Theory + practice + feedback — refreshed every day",
+      "Multiple shooting styles: Macro, wide-angle, advanced compositions 📸",
+      "Post-dive image analysis sessions 🧠",
+      "Full access to professional camera gear — DSLR / TG6 / strobes",
+      "Photo editing with Luminar Neo / Lightroom",
+      "Full diving equipment 🤿",
+      "Diving insurance 🧾",
+      "Study materials & guidebook 📘",
+      "PADI certification upon completion 🏆",
+    ],
+    notIncluded: [
+      "Editing software subscription (Luminar Neo: $109 lifetime — directly from their site) 🖥️",
+      "Meals & accommodation (arranged separately) 🍽️",
+    ],
+    prerequisites: [
+      "Open Water certification or higher",
+      "Prior UW photography experience recommended (not required)",
+      "Can be combined as a specialty within Advanced Open Water",
+    ],
+    perks: [
+      "10 dives designed specifically for photography — not just 'another dive'",
+      "1-on-1 instruction — take as much time as you need underwater",
+      "Build a professional portfolio by the end of the course",
+    ],
+    price: "37,000 THB",
+  },
 };
 interface CourseDetailDialogProps {
   courseTitle: string;
