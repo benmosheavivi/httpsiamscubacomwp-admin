@@ -79,7 +79,7 @@ const courseDetails: Record<string, CourseDetail> = {
     perks: [
       "Small Groups: Max 6 students per instructor.",
       "Free Stay: 2 nights of accommodation at our club! 🎁",
-      "Israeli instructors — Hebrew & English speaking 🇮🇱",
+      "Instructors in multiple languages 🌍",
     ],
     included: [
       "4 open-water dives at stunning sites",
