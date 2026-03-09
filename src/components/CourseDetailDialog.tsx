@@ -324,6 +324,38 @@ const CourseDetailDialog = ({ courseTitle, open, onOpenChange }: CourseDetailDia
               </div>
             )}
 
+            {/* Not Included */}
+            {detail.notIncluded && (
+              <div className="space-y-3">
+                <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
+                  <XCircle className="h-4 w-4 text-destructive" /> Not Included
+                </h4>
+                <ul className="space-y-1.5">
+                  {detail.notIncluded.map((item) => (
+                    <li key={item} className="text-sm text-foreground/80 flex items-start gap-2">
+                      <span className="text-destructive mt-1">•</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* What to Bring */}
+            {detail.whatToBring && (
+              <div className="space-y-3">
+                <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
+                  <Backpack className="h-4 w-4 text-primary" /> What to Bring
+                </h4>
+                <ul className="space-y-1.5">
+                  {detail.whatToBring.map((item) => (
+                    <li key={item} className="text-sm text-foreground/80 flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Prerequisites */}
             {detail.prerequisites && (
               <div className="space-y-3">
@@ -349,6 +381,22 @@ const CourseDetailDialog = ({ courseTitle, open, onOpenChange }: CourseDetailDia
                     <span className="font-semibold text-foreground">{perk}</span>
                   </div>
                 ))}
+              </div>
+            )}
+
+            {/* Payment & Terms */}
+            {detail.payment && (
+              <div className="space-y-3">
+                <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
+                  <CreditCard className="h-4 w-4 text-primary" /> Payment & Terms
+                </h4>
+                <ul className="space-y-1.5">
+                  {detail.payment.map((item) => (
+                    <li key={item} className="text-sm text-foreground/80 flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span> {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             )}
 
