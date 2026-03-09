@@ -100,6 +100,9 @@ type TranslationStrings = {
   hl_streamline: string;
   hl_independent_gas: string;
   hl_advanced_config: string;
+  hl_ppb_buoyancy: string;
+  hl_ppb_air: string;
+  hl_ppb_glide: string;
 
   // Duration
   dur_1_day: string;
