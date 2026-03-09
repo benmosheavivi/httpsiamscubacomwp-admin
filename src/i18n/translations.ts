@@ -247,6 +247,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_sidemount: "Sidemount Diving",
     course_ppb: "Peak Performance Buoyancy",
     course_uw_photo: "UW Photography & Video",
+    course_review: "Scuba Review",
 
     hl_no_exp: "No experience needed",
     hl_pool_ocean: "Pool + ocean dive",
