@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Compass, Clock, Users, Waves, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,6 @@ import sailRockChimney from "@/assets/sail-rock-chimney.png";
 import sailRockSilhouette from "@/assets/sail-rock-silhouette.png";
 import sailRockCoral from "@/assets/sail-rock-coral.png";
 import CourseDetailDialog from "./CourseDetailDialog";
-import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20fun%20dives.";
@@ -39,8 +38,10 @@ const FunDivingSection = () => {
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
             <Card className="border-0 shadow-lg bg-card overflow-hidden">
-              <div className="h-48 md:h-64">
-                <ThreeDPhotoCarousel images={[sailRockChimney, sailRockSilhouette, sailRockCoral]} />
+              <div className="grid grid-cols-3 h-40 md:h-48">
+                <img src={sailRockChimney} alt="Divers at Sail Rock Chimney" className="w-full h-full object-cover" />
+                <img src={sailRockSilhouette} alt="Diver silhouette at Sail Rock" className="w-full h-full object-cover" />
+                <img src={sailRockCoral} alt="Sail Rock coral and fish" className="w-full h-full object-cover" />
               </div>
               <CardContent className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
                 <div className="flex-1 text-center md:text-left">
@@ -65,8 +66,11 @@ const FunDivingSection = () => {
             </Card>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
-            <ThreeDPhotoCarousel images={[diveAction, diveCoralGroup, diveReef, diveExplorer]} />
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12 rounded-2xl overflow-hidden">
+            <img src={diveAction} alt="Diver jumping into the ocean" className="w-full h-48 md:h-64 object-cover rounded-xl" />
+            <img src={diveCoralGroup} alt="Divers exploring coral reef" className="w-full h-48 md:h-64 object-cover rounded-xl" />
+            <img src={diveReef} alt="Divers swimming near coral" className="w-full h-48 md:h-64 object-cover rounded-xl" />
+            <img src={diveExplorer} alt="Diver exploring underwater rocks" className="w-full h-48 md:h-64 object-cover rounded-xl" />
           </motion.div>
 
           <div className="max-w-3xl mx-auto text-center">
