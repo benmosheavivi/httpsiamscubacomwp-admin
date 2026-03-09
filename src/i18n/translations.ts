@@ -506,6 +506,10 @@ export const translations: Record<Language, TranslationStrings> = {
     footer_contact: "יצירת קשר",
     footer_links: "קישורים מהירים",
     footer_rights: "כל הזכויות שמורות.",
+    search_placeholder: "חפש קורסים, צלילה, סירות...",
+    search_no_results: "לא נמצאו תוצאות.",
+    share_button: "שתף",
+    share_copied: "הקישור הועתק!",
   },
   es: {
     nav_courses: "Cursos",
