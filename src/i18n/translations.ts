@@ -822,5 +822,9 @@ export const translations: Record<Language, TranslationStrings> = {
     footer_contact: "Contact",
     footer_links: "Liens Rapides",
     footer_rights: "Tous droits réservés.",
+    search_placeholder: "Rechercher cours, plongée, bateaux...",
+    search_no_results: "Aucun résultat trouvé.",
+    share_button: "Partager",
+    share_copied: "Lien copié !",
   },
 };

@@ -92,8 +92,9 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile: language switcher */}
-          <div className="md:hidden">
+          {/* Mobile: language switcher + search */}
+          <div className="md:hidden flex items-center gap-2">
+            <SiteSearch />
             <LanguageSwitcher />
           </div>
         </div>
