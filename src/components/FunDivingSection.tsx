@@ -65,11 +65,8 @@ const FunDivingSection = () => {
             </Card>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12 rounded-2xl overflow-hidden">
-            <img src={diveAction} alt="Diver jumping into the ocean" className="w-full h-48 md:h-64 object-cover rounded-xl" />
-            <img src={diveCoralGroup} alt="Divers exploring coral reef" className="w-full h-48 md:h-64 object-cover rounded-xl" />
-            <img src={diveReef} alt="Divers swimming near coral" className="w-full h-48 md:h-64 object-cover rounded-xl" />
-            <img src={diveExplorer} alt="Diver exploring underwater rocks" className="w-full h-48 md:h-64 object-cover rounded-xl" />
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+            <ThreeDPhotoCarousel images={[diveAction, diveCoralGroup, diveReef, diveExplorer]} />
           </motion.div>
 
           <div className="max-w-3xl mx-auto text-center">
