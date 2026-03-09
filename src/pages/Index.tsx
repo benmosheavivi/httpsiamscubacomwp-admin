@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import CoursesSection from "@/components/CoursesSection";
@@ -13,11 +15,22 @@ import FloatingInstagram from "@/components/FloatingInstagram";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const Index = () => {
+  const [searchParams] = useSearchParams();
+  const courseParam = searchParams.get("course");
+
+  useEffect(() => {
+    if (courseParam) {
+      setTimeout(() => {
+        document.getElementById("courses")?.scrollIntoView({ behavior: "smooth" });
+      }, 500);
+    }
+  }, [courseParam]);
+
   return (
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
-      <CoursesSection />
+      <CoursesSection initialCourse={courseParam} />
       <SailRockBanner />
       <FunDivingSection />
       <BoatsSection />

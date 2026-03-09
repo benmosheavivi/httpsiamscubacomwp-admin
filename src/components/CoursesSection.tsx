@@ -14,13 +14,14 @@ const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'm%2
 
 const CourseCard = ({ course, t, setSelectedCourse }: { course: any; t: (key: any) => string; setSelectedCourse: (key: string) => void }) => {
   const handleShare = async () => {
-    const text = `${course.title}${course.price ? ` — ฿${course.price} THB` : ""}\n${course.duration}\n${course.highlights.join("\n")}\n\nSiam Scuba — Koh Tao\n${window.location.origin}`;
+    const shareUrl = `${window.location.origin}/?course=${encodeURIComponent(course.dialogKey)}`;
+    const text = `${course.title}${course.price ? ` — ฿${course.price} THB` : ""}\n${course.duration}\n${course.highlights.join("\n")}\n\nSiam Scuba — Koh Tao`;
     if (navigator.share) {
       try {
-        await navigator.share({ title: course.title, text, url: window.location.origin });
+        await navigator.share({ title: course.title, text, url: shareUrl });
       } catch {}
     } else {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(`${text}\n${shareUrl}`);
       toast.success(t("share_copied"));
     }
   };
@@ -83,8 +84,8 @@ const CourseCard = ({ course, t, setSelectedCourse }: { course: any; t: (key: an
   );
 };
 
-const CoursesSection = () => {
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+const CoursesSection = ({ initialCourse }: { initialCourse?: string | null }) => {
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(initialCourse || null);
   const { t } = useLanguage();
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: false, slidesToScroll: 1 });
 
