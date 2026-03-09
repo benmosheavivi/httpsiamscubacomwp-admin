@@ -290,6 +290,9 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_uw_10dives: "10 dedicated photo dives",
     hl_uw_1on1: "1-on-1 instructor",
     hl_uw_padi_cert: "PADI UW Photo certification",
+    hl_review_refresh: "Refresh your skills",
+    hl_review_2dives: "2 open-water dives",
+    hl_review_instructor: "Personal instructor guidance",
 
     dur_1_day: "1 day",
     dur_5_days: "5 days",
