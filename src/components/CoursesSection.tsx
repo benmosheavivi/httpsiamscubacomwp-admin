@@ -8,6 +8,7 @@ import padi from "@/assets/padi-logo.png";
 import CourseDetailDialog from "./CourseDetailDialog";
 import { useLanguage } from "@/i18n/LanguageContext";
 import useEmblaCarousel from "embla-carousel-react";
+import { toast } from "sonner";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'm%20interested%20in%20";
 
