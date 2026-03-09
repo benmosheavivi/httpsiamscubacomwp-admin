@@ -405,6 +405,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_dpv: "קטנוע תת-ימי (DPV)",
     course_sidemount: "צלילת סיידמאונט",
     course_ppb: "שליטה מושלמת בציפה",
+    course_uw_photo: "צילום תת-ימי ווידאו",
 
     hl_no_exp: "ללא ניסיון נדרש",
     hl_pool_ocean: "בריכה + צלילת ים",
