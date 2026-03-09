@@ -608,8 +608,12 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_ppb_buoyancy: "Domina el control de flotabilidad",
     hl_ppb_air: "Usa menos aire",
     hl_ppb_glide: "Deslízate sobre los arrecifes",
+    hl_uw_10dives: "10 inmersiones de foto dedicadas",
+    hl_uw_1on1: "Instructor 1 a 1",
+    hl_uw_padi_cert: "Certificación PADI Foto Submarina",
 
     dur_1_day: "1 día",
+    dur_5_days: "5 días",
     dur_2_days: "2 días",
     dur_3_4_days: "3–4 días",
     dur_4_8_weeks: "4–8 semanas",
