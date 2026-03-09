@@ -70,7 +70,7 @@ const courseDetails: Record<string, CourseDetail> = {
   },
   "Open Water Diver": {
     header: "⭐ Your First Diving Course — PADI Certified for Life!",
-    intro: "No experience needed! In just 2.5 days you'll earn a PADI Open Water certification — recognized worldwide, valid for life. Dive to 18 meters with Israeli instructors who speak Hebrew & English.",
+    intro: "No experience needed! In just 2.5 days you'll earn a PADI Open Water certification — recognized worldwide, valid for life. Dive to 18 meters with instructors in multiple languages.",
     itinerary: [
       { day: "Day 1", description: "09:00 — Meet at the club for theory. Break. 11:00 — Pool session for practical skills." },
       { day: "Day 2", description: "09:00 — Second theory session. 11:00 — Boat departure. Ocean drills + first dive to 12m. Lunch break. 14:00 — Second dive at another site. 16:00 — Return to club." },
@@ -79,7 +79,7 @@ const courseDetails: Record<string, CourseDetail> = {
     perks: [
       "Small Groups: Max 6 students per instructor.",
       "Free Stay: 2 nights of accommodation at our club! 🎁",
-      "Israeli instructors — Hebrew & English speaking 🇮🇱",
+      "Instructors in multiple languages 🌍",
     ],
     included: [
       "4 open-water dives at stunning sites",
