@@ -791,6 +791,9 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_uw_10dives: "10 plongées photo dédiées",
     hl_uw_1on1: "Instructeur individuel",
     hl_uw_padi_cert: "Certification PADI Photo Sous-marine",
+    hl_review_refresh: "Rafraîchissez vos compétences",
+    hl_review_2dives: "2 plongées en eaux libres",
+    hl_review_instructor: "Accompagnement instructeur",
 
     dur_1_day: "1 jour",
     dur_5_days: "5 jours",
