@@ -63,6 +63,7 @@ const CourseCard = ({ course, t, setSelectedCourse }: { course: any; t: (key: an
   </GlowCard>
 );
 
+const CoursesSection = () => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const { t } = useLanguage();
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: false, slidesToScroll: 1 });
