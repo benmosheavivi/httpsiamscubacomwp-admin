@@ -1,7 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Clock, CheckCircle2, Gift, Tag, AlertCircle, MessageCircle, Waves, Fish, Anchor } from "lucide-react";
+import { Clock, CheckCircle2, Gift, Tag, AlertCircle, MessageCircle, Waves, Fish, Anchor, XCircle, Backpack, CreditCard } from "lucide-react";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'm%20interested%20in%20";
 
@@ -21,6 +21,10 @@ interface CourseDetail {
   price: string;
   extras?: string[];
   specialOffer?: string;
+  notIncluded?: string[];
+  whatToBring?: string[];
+  payment?: string[];
+  nextStep?: string;
 }
 
 const courseDetails: Record<string, CourseDetail> = {
@@ -65,21 +69,49 @@ const courseDetails: Record<string, CourseDetail> = {
     extras: ["Add a second dive for just +1,000 THB on the day!"],
   },
   "Open Water Diver": {
-    header: "Get Your Lifetime Certification",
-    intro: "This is the world's most popular diving course. In just 2.5 days, you will be certified to dive anywhere in the world up to 18 meters deep!",
+    header: "⭐ Your First Diving Course — PADI Certified for Life!",
+    intro: "No experience needed! In just 2.5 days you'll earn a PADI Open Water certification — recognized worldwide, valid for life. Dive to 18 meters with Israeli instructors who speak Hebrew & English.",
     itinerary: [
-      { day: "Day 1", description: "Theory and pool practice. Learn the essential safety skills." },
-      { day: "Day 2", description: "Two ocean dives to 12m. Feel the weightlessness!" },
-      { day: "Day 3", description: "Two deeper dives to 18m and graduation party." },
+      { day: "Day 1", description: "09:00 — Meet at the club for theory. Break. 11:00 — Pool session for practical skills." },
+      { day: "Day 2", description: "09:00 — Second theory session. 11:00 — Boat departure. Ocean drills + first dive to 12m. Lunch break. 14:00 — Second dive at another site. 16:00 — Return to club." },
+      { day: "Day 3", description: "06:30 — First dive to 18m. 09:00 — Break. 10:00 — Final dive. 11:00 — Back to the club 🎉" },
     ],
     perks: [
-      "Small Groups: Max 6 students per instructor for better care.",
-      "Free Stay: 2 nights of accommodation included at our club!",
+      "Small Groups: Max 6 students per instructor.",
+      "Free Stay: 2 nights of accommodation at our club! 🎁",
+      "Israeli instructors — Hebrew & English speaking 🇮🇱",
     ],
     included: [
-      "Everything included: gear, insurance, certification, and accommodation.",
+      "4 open-water dives at stunning sites",
+      "Full professional diving equipment 🥽",
+      "Theory sessions + pool safety drills",
+      "Diving insurance",
+      "Boat snacks — fruit, water, cookies, tea & coffee ☕",
+      "2 nights accommodation — on us! 🎁",
+      "PADI certification card",
+    ],
+    notIncluded: [
+      "Meals 🍞",
+      "Underwater photography (available on last day — extra charge 📸)",
+      "Transport to the dive center 🚕",
+      "Private instructor option 👨‍🏫 (available — extra charge)",
+    ],
+    whatToBring: [
+      "Swimsuit 👙",
+      "Towel 💦",
+      "Good vibes & a sense of adventure 👍",
+    ],
+    payment: [
+      "Course price: 11,000 THB",
+      "Booking deposit: 3,000 THB (payable via Bit)",
+      "Balance on dive day: 8,000 THB (cash or Thai bank transfer)",
+      "Deposit is non-refundable ❌",
+      "Reschedule up to 12 hours before",
+      "If you stop mid-course — partial refund available",
+      "Complete the course anywhere in the world within 12 months",
     ],
     price: "11,000 THB",
+    nextStep: "Continue to Advanced Open Water — 1.5 days, 5 more dives! 🌊",
   },
   "Advanced Open Water": {
     header: "Explore Further: Depth & Adventure",
@@ -292,6 +324,38 @@ const CourseDetailDialog = ({ courseTitle, open, onOpenChange }: CourseDetailDia
               </div>
             )}
 
+            {/* Not Included */}
+            {detail.notIncluded && (
+              <div className="space-y-3">
+                <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
+                  <XCircle className="h-4 w-4 text-destructive" /> Not Included
+                </h4>
+                <ul className="space-y-1.5">
+                  {detail.notIncluded.map((item) => (
+                    <li key={item} className="text-sm text-foreground/80 flex items-start gap-2">
+                      <span className="text-destructive mt-1">•</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* What to Bring */}
+            {detail.whatToBring && (
+              <div className="space-y-3">
+                <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
+                  <Backpack className="h-4 w-4 text-primary" /> What to Bring
+                </h4>
+                <ul className="space-y-1.5">
+                  {detail.whatToBring.map((item) => (
+                    <li key={item} className="text-sm text-foreground/80 flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Prerequisites */}
             {detail.prerequisites && (
               <div className="space-y-3">
@@ -320,6 +384,22 @@ const CourseDetailDialog = ({ courseTitle, open, onOpenChange }: CourseDetailDia
               </div>
             )}
 
+            {/* Payment & Terms */}
+            {detail.payment && (
+              <div className="space-y-3">
+                <h4 className="font-display font-semibold text-foreground flex items-center gap-2">
+                  <CreditCard className="h-4 w-4 text-primary" /> Payment & Terms
+                </h4>
+                <ul className="space-y-1.5">
+                  {detail.payment.map((item) => (
+                    <li key={item} className="text-sm text-foreground/80 flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Price */}
             <div className="bg-primary/5 rounded-lg p-4 flex items-center gap-3">
               <Tag className="h-5 w-5 text-primary shrink-0" />
@@ -336,6 +416,13 @@ const CourseDetailDialog = ({ courseTitle, open, onOpenChange }: CourseDetailDia
             {detail.specialOffer && (
               <div className="bg-accent/10 border border-accent/20 rounded-lg p-3 text-sm text-foreground font-medium">
                 🎉 {detail.specialOffer}
+              </div>
+            )}
+
+            {/* Next Step */}
+            {detail.nextStep && (
+              <div className="bg-secondary/30 border border-secondary rounded-lg p-3 text-sm text-foreground font-medium">
+                ➕ {detail.nextStep}
               </div>
             )}
 
