@@ -188,8 +188,8 @@ function ThreeDPhotoCarousel({ images }: { images: string[] }) {
       <div className="relative h-[250px] md:h-[350px] w-full overflow-hidden rounded-xl">
         <motion.div
           className="h-full w-full"
-          initial={{ WebkitMaskImage: hiddenMask, maskImage: hiddenMask }}
-          animate={{ WebkitMaskImage: visibleMask, maskImage: visibleMask }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
           <Carousel
