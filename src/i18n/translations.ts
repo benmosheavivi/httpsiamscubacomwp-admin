@@ -62,6 +62,7 @@ type TranslationStrings = {
   course_deep: string;
   course_dpv: string;
   course_sidemount: string;
+  course_ppb: string;
 
   // Course highlights
   hl_no_exp: string;
