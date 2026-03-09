@@ -231,6 +231,15 @@ const CoursesSection = ({ initialCourse }: { initialCourse?: string | null }) =>
           duration: t("dur_2_3_days"),
           highlights: [t("hl_streamline"), t("hl_independent_gas"), t("hl_advanced_config")],
         },
+        {
+          icon: Camera,
+          title: t("course_uw_photo"),
+          dialogKey: "UW Photography & Videography",
+          price: "37,000",
+          duration: t("dur_5_days"),
+          highlights: [t("hl_uw_10dives"), t("hl_uw_1on1"), t("hl_uw_padi_cert")],
+          hasDetails: true,
+        },
       ],
     },
   ];
