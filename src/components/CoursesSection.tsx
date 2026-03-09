@@ -111,7 +111,17 @@ const CoursesSection = () => {
     {
       label: t("courses_specialty"),
       description: t("courses_specialty_desc"),
+      isCarousel: true,
       courses: [
+        {
+          icon: Feather,
+          title: t("course_ppb"),
+          dialogKey: "Peak Performance Buoyancy",
+          price: "5,500",
+          duration: t("dur_1_day"),
+          highlights: [t("hl_ppb_buoyancy"), t("hl_ppb_air"), t("hl_ppb_glide")],
+          hasDetails: true,
+        },
         {
           icon: Anchor,
           title: t("course_wreck"),
