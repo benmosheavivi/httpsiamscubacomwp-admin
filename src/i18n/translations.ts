@@ -104,10 +104,14 @@ type TranslationStrings = {
   hl_ppb_buoyancy: string;
   hl_ppb_air: string;
   hl_ppb_glide: string;
+  hl_uw_10dives: string;
+  hl_uw_1on1: string;
+  hl_uw_padi_cert: string;
 
   // Duration
   dur_1_day: string;
   dur_2_days: string;
+  dur_5_days: string;
   dur_3_4_days: string;
   dur_4_8_weeks: string;
   dur_varies: string;
