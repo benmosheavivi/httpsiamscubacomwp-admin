@@ -12,6 +12,7 @@ import sailRockChimney from "@/assets/sail-rock-chimney.png";
 import sailRockSilhouette from "@/assets/sail-rock-silhouette.png";
 import sailRockCoral from "@/assets/sail-rock-coral.png";
 import CourseDetailDialog from "./CourseDetailDialog";
+import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const WHATSAPP_URL = "https://wa.me/972528641581?text=Hi%20Siam%20Scuba!%20I'd%20like%20to%20book%20fun%20dives.";
