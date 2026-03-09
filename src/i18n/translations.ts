@@ -282,8 +282,12 @@ export const translations: Record<Language, TranslationStrings> = {
     hl_ppb_buoyancy: "Master buoyancy control",
     hl_ppb_air: "Use less air",
     hl_ppb_glide: "Glide over reefs effortlessly",
+    hl_uw_10dives: "10 dedicated photo dives",
+    hl_uw_1on1: "1-on-1 instructor",
+    hl_uw_padi_cert: "PADI UW Photo certification",
 
     dur_1_day: "1 day",
+    dur_5_days: "5 days",
     dur_2_days: "2 days",
     dur_3_4_days: "3–4 days",
     dur_4_8_weeks: "4–8 weeks",
