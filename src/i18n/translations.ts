@@ -414,6 +414,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_sidemount: "צלילת סיידמאונט",
     course_ppb: "שליטה מושלמת בציפה",
     course_uw_photo: "צילום תת-ימי ווידאו",
+    course_review: "צלילת ריענון",
 
     hl_no_exp: "ללא ניסיון נדרש",
     hl_pool_ocean: "בריכה + צלילת ים",
