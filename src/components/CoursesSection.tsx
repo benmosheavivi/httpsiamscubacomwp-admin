@@ -126,6 +126,15 @@ const CoursesSection = ({ initialCourse }: { initialCourse?: string | null }) =>
           highlights: [t("hl_children"), t("hl_fun_intro"), t("hl_safe")],
           hasDetails: true,
         },
+        {
+          icon: Waves,
+          title: t("course_review"),
+          dialogKey: "Scuba Review",
+          price: "2,500",
+          duration: t("dur_1_day"),
+          highlights: [t("hl_review_refresh"), t("hl_review_2dives"), t("hl_review_instructor")],
+          hasDetails: true,
+        },
       ],
     },
     {

@@ -52,6 +52,30 @@ const courseDetails: Record<string, CourseDetail> = {
       "Breakfast, Thai buffet lunch, and refreshments.",
     ],
   },
+  "Scuba Review": {
+    header: "💧 Scuba Review — Get Your Confidence Back!",
+    intro: "Haven't dived in over 6 months? Want to feel confident again before advanced dives? Our Scuba Review is the perfect way to refresh your skills, remember what you learned, and feel comfortable underwater again — with a certified instructor by your side.",
+    schedule: [
+      { time: "10:30", description: "Meet at the club — quick knowledge quiz & gear fitting" },
+      { time: "11:45", description: "Head to the boat" },
+      { time: "12:30", description: "First dive — key skill exercises followed by a fun free dive" },
+      { time: "13:30", description: "Short break & sail to the second dive site" },
+      { time: "14:00", description: "Second dive at a new site 🌊" },
+      { time: "15:30–16:00", description: "Return to the club 🏁" },
+    ],
+    included: [
+      "Personal guidance from a professional instructor",
+      "2 open-water dives at Koh Tao sites",
+      "Full diving equipment",
+      "Diving insurance",
+      "Boat snacks — fresh fruit, water, tea & coffee ☕",
+    ],
+    prerequisites: [
+      "Any diver who hasn't dived in over 6 months",
+      "Great refresher before Advanced, fun dives, or any underwater adventure 🐠",
+    ],
+    price: "2,500 THB",
+  },
   "Discover Scuba Diving": {
     header: "🌊 Discover Scuba Diving — An Unforgettable First Dive!",
     intro: "Dreaming of your first dive? Or thinking about a course but not sure yet? Our Discover Scuba Diving experience is the perfect way to start — a fun, safe, and thrilling one-day adventure! No experience needed. We can't wait to show you the magical underwater world! 🤿💙",
