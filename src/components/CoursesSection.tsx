@@ -66,16 +66,22 @@ const CourseCard = ({ course, t, setSelectedCourse }: { course: any; t: (key: an
               {t("courses_more_details")}
             </Button>
           )}
-          <Button asChild variant={course.featured ? "default" : "outline"} className="rounded-full w-full">
-            <a href={`${WHATSAPP_URL}${encodeURIComponent(course.dialogKey)}`} target="_blank" rel="noopener noreferrer">
-              {course.price ? t("courses_book_now") : t("courses_get_price")}
-            </a>
-          </Button>
+          <div className="flex gap-2">
+            <Button asChild variant={course.featured ? "default" : "outline"} className="rounded-full flex-1">
+              <a href={`${WHATSAPP_URL}${encodeURIComponent(course.dialogKey)}`} target="_blank" rel="noopener noreferrer">
+                {course.price ? t("courses_book_now") : t("courses_get_price")}
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" className="rounded-full shrink-0 text-muted-foreground hover:text-primary" onClick={handleShare} aria-label={t("share_button")}>
+              <Share2 className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </CardContent>
     </Card>
   </GlowCard>
-);
+  );
+};
 
 const CoursesSection = () => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
