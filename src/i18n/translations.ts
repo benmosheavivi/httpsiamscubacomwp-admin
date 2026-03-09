@@ -568,6 +568,7 @@ export const translations: Record<Language, TranslationStrings> = {
     course_dpv: "Scooter Submarino (DPV)",
     course_sidemount: "Buceo Sidemount",
     course_ppb: "Flotabilidad Perfecta",
+    course_uw_photo: "Fotografía y Video Submarino",
 
     hl_no_exp: "Sin experiencia necesaria",
     hl_pool_ocean: "Piscina + buceo en mar",
