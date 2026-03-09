@@ -184,6 +184,14 @@ type TranslationStrings = {
   footer_contact: string;
   footer_links: string;
   footer_rights: string;
+
+  // Search
+  search_placeholder: string;
+  search_no_results: string;
+
+  // Share
+  share_button: string;
+  share_copied: string;
 };
 
 export const translations: Record<Language, TranslationStrings> = {
